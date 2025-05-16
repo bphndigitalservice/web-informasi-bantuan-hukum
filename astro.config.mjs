@@ -15,16 +15,16 @@ export default defineConfig({
   image: {
     domains: ["images.unsplash.com"],
   },
-  // i18n: {
-  //   defaultLocale: "en",
-  //   locales: ["en", "fr"],
-  //   fallback: {
-  //     fr: "en",
-  //   },
-  //   routing: {
-  //     prefixDefaultLocale: false,
-  //   },
-  // },
+   i18n: {
+     defaultLocale: "en",
+     locales: ["en", "fr"],
+     fallback: {
+       fr: "en",
+     },
+     routing: {
+       prefixDefaultLocale: false,
+     },
+   },
   prefetch: true,
   integrations: [sitemap({
     i18n: {
@@ -34,7 +34,7 @@ export default defineConfig({
         fr: "fr",
       },
     },
-  }), mdx(), react()],
+  }), react()],
   experimental: {
     clientPrerender: true,
   },

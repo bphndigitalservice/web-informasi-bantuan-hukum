@@ -30,17 +30,19 @@ const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
 const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
 
 // Define variables for page content
-const title: string = "Your Gateway to Construction Excellence";
+const title: string = "Gerbang Menuju Akses Hukum yang Inklusif";
 const subTitle: string =
-  "Explore the latest news, tips, and insights from ScrewFast to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.";
-const secondTitle: string = "Insights";
+  "Jelajahi berita, cerita inspiratif, dan panduan seputar bantuan hukum, paralegal, penyuluhan hukum, serta inisiatif masyarakat sadar hukum.";
+
+const secondTitle: string = "Wawasan Hukum";
 const secondSubTitle: string =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts. ";
+  "Ikuti perkembangan terbaru tentang bantuan hukum dan upaya pembudayaan hukum bersama para penyuluh, paralegal, dan penggerak akses keadilan dari seluruh Indonesia.";
 
 const pageTitle: string = `Blog | ${SITE.title}`;
 const metaDescription =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.";
-const ogTitle = "Construction Industry Blog | ScrewFast";
+  "Temukan wawasan, berita, dan praktik baik dalam bidang bantuan hukum dan pembudayaan hukum. Bersama, kita wujudkan masyarakat yang sadar dan berdaya secara hukum.";
+const ogTitle = "Blog Bantuan Hukum & Kesadaran Hukum | Portal Informasi Bantuan Hukum";
+
 ---
 
 <MainLayout
@@ -92,14 +94,14 @@ const ogTitle = "Construction Industry Blog | ScrewFast";
       {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} />)}
     </div>
   </section>
-  {/* Most recent blog post */}
+<!--  {/* Most recent blog post */}
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
     <CardBlogRecent blogEntry={mostRecentPost} />
-  </section>
+  </section>-->
   {/* Insights section */}
-  <section
+  <!--<section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
     <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
@@ -119,5 +121,5 @@ const ogTitle = "Construction Industry Blog | ScrewFast";
         ))
       }
     </div>
-  </section>
+  </section>-->
 </MainLayout>

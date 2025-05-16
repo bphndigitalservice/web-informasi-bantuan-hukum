@@ -1,10 +1,9 @@
 // An array of links for navigation bar
 const navBarLinks = [
   { name: "Home", url: "/" },
-  { name: "Products", url: "/products" },
-  { name: "Services", url: "/services" },
-  { name: "Blog", url: "/blog" },
-  { name: "Contact", url: "/contact" },
+  { name: "Layanan", url: "/services" },
+  { name: "Informasi", url: "/blog" },
+  { name: "Kontak", url: "/contact" },
 ];
 // An array of links for footer
 const footerLinks = [
@@ -30,7 +29,7 @@ const footerLinks = [
 const socialLinks = {
   facebook: "https://www.facebook.com/",
   x: "https://twitter.com/",
-  github: "https://github.com/mearashadowfax/ScrewFast",
+  github: "https://github.com/bphndigitalservice",
   google: "https://www.google.com/",
   slack: "https://slack.com/",
 };

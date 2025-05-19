@@ -34,15 +34,10 @@ const title: string = "Gerbang Menuju Akses Hukum yang Inklusif";
 const subTitle: string =
   "Jelajahi berita, cerita inspiratif, dan panduan seputar bantuan hukum, paralegal, penyuluhan hukum, serta inisiatif masyarakat sadar hukum.";
 
-const secondTitle: string = "Wawasan Hukum";
-const secondSubTitle: string =
-  "Ikuti perkembangan terbaru tentang bantuan hukum dan upaya pembudayaan hukum bersama para penyuluh, paralegal, dan penggerak akses keadilan dari seluruh Indonesia.";
-
 const pageTitle: string = `Blog | ${SITE.title}`;
 const metaDescription =
   "Temukan wawasan, berita, dan praktik baik dalam bidang bantuan hukum dan pembudayaan hukum. Bersama, kita wujudkan masyarakat yang sadar dan berdaya secara hukum.";
 const ogTitle = "Blog Bantuan Hukum & Kesadaran Hukum | Portal Informasi Bantuan Hukum";
-
 ---
 
 <MainLayout
@@ -52,19 +47,19 @@ const ogTitle = "Blog Bantuan Hukum & Kesadaran Hukum | Portal Informasi Bantuan
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/blog",
-    url: "https://screwfast.uk/blog",
-    name: "Blog | ScrewFast",
+    "@id": `${SITE.url}/blog`,
+    url: `${SITE.url}/blog`,
+    name: pageTitle,
     description:
-      "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.",
+      metaDescription,
     isPartOf: {
       "@type": "WebSite",
-      url: "https://screwfast.uk",
-      name: "ScrewFast",
+      url: SITE.url,
+      name: SITE.title,
       description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        metaDescription,
     },
-    inLanguage: "en-US",
+    inLanguage: "id-ID",
   }}
 >
   <section
@@ -91,7 +86,7 @@ const ogTitle = "Blog Bantuan Hukum & Kesadaran Hukum | Portal Informasi Bantuan
   >
     {/* Blog posts grid */}
     <div class="grid gap-6 lg:grid-cols-2">
-      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry}  />)}
+      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} />)}
     </div>
   </section>
   {/* Most recent blog post */}

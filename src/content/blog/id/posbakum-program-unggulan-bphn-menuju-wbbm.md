@@ -1,20 +1,20 @@
 ---
-title: "Posbakum: BPHN's Flagship Program in Building Integrity Zones Towards WBBM"
-description: "BPHN highlights the strategic role of Posbakum in expanding access to justice and realizing a clean and service-oriented bureaucracy."
+title: "Posbakum: Program Unggulan BPHN dalam Membangun Zona Integritas Menuju WBBM"
+description: "BPHN menyoroti peran strategis Posbakum dalam memperluas akses keadilan dan mewujudkan birokrasi yang bersih dan berorientasi pada pelayanan."
 author: "BPHN"
 authorImage: "@/images/blog/bphn-logo.png"
 authorImageAlt: "BPHN Author Photo"
 pubDate: 2025-04-11
 cardImage: "@/images/blog/posbakum_zi.webp"
-cardImageAlt: "Illustration of legal aid services in rural areas"
+cardImageAlt: "Ilustrasi layanan bantuan hukum di daerah pedesaan"
 readTime: 4
 tags: ["legal aid", "Posbakum", "access to justice", "integrity zones", "WBBM"]
 contents: [
-  "The National Legal Development Agency (BPHN) of the Ministry of Law and Human Rights has designated the Legal Aid Post (Posbakum) as a flagship program in the development of Integrity Zones (ZI) towards a Clean and Service-Oriented Bureaucracy (WBBM). This initiative aims to enhance public access to justice, especially at the grassroots level.",
-  "Posbakum serves as a tangible manifestation of the government's commitment to providing free legal assistance to underprivileged communities. Through this program, BPHN seeks to ensure that legal services are more accessible, equitable, and responsive to the needs of the public.",
-  "In addition to Posbakum, BPHN is also developing four other flagship programs as part of its digital transformation and innovation efforts in building ZI towards WBBM. These programs are designed to improve service quality, increase transparency, and foster public trust in legal institutions.",
-  "The implementation of Posbakum involves collaboration with various stakeholders, including local governments, legal aid organizations, and community leaders. This collaborative approach is intended to strengthen the legal culture and empower communities to resolve legal issues effectively.",
-  "BPHN encourages continuous capacity building for village officials and community leaders to enhance their understanding of Posbakum's roles and functions. Through training and technical assistance, these stakeholders are expected to play an active role in promoting legal awareness and facilitating access to legal services.",
-  "With the strategic implementation of Posbakum and other flagship programs, BPHN is committed to achieving the goals of WBBM by fostering a clean, accountable, and service-oriented legal bureaucracy that upholds the principles of justice and human rights."
+  "Badan Pembinaan Hukum Nasional (BPHN) Kementerian Hukum dan Hak Asasi Manusia telah menetapkan Pos Bantuan Hukum (Posbakum) sebagai program unggulan dalam pembangunan Zona Integritas (ZI) menuju Wilayah Birokrasi Bersih dan Melayani (WBBM). Inisiatif ini bertujuan untuk meningkatkan akses masyarakat terhadap keadilan, terutama di tingkat akar rumput.",
+  "Posbakum berfungsi sebagai manifestasi nyata dari komitmen pemerintah untuk menyediakan bantuan hukum gratis kepada masyarakat yang kurang mampu. Melalui program ini, BPHN berupaya memastikan bahwa layanan hukum lebih mudah diakses, adil, dan responsif terhadap kebutuhan masyarakat.",
+  "Selain Posbakum, BPHN juga mengembangkan empat program unggulan lainnya sebagai bagian dari upaya transformasi digital dan inovasi dalam membangun ZI menuju WBBM. Program-program ini dirancang untuk meningkatkan kualitas layanan, meningkatkan transparansi, dan menumbuhkan kepercayaan publik terhadap lembaga hukum.",
+  "Pelaksanaan Posbakum melibatkan kolaborasi dengan berbagai pemangku kepentingan, termasuk pemerintah daerah, organisasi bantuan hukum, dan tokoh masyarakat. Pendekatan kolaboratif ini dimaksudkan untuk memperkuat budaya hukum dan memberdayakan masyarakat untuk menyelesaikan masalah hukum secara efektif.",
+  "BPHN mendorong pembangunan kapasitas yang berkelanjutan bagi perangkat desa dan tokoh masyarakat untuk meningkatkan pemahaman mereka tentang peran dan fungsi Posbakum. Melalui pelatihan dan bantuan teknis, para pemangku kepentingan ini diharapkan dapat memainkan peran aktif dalam mempromosikan kesadaran hukum dan memfasilitasi akses terhadap layanan hukum.",
+  "Dengan implementasi strategis Posbakum dan program unggulan lainnya, BPHN berkomitmen untuk mencapai tujuan WBBM dengan mendorong birokrasi hukum yang bersih, akuntabel, dan berorientasi pada pelayanan yang menjunjung tinggi prinsip-prinsip keadilan dan hak asasi manusia."
 ]
 ---

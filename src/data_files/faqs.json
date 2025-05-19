@@ -2,28 +2,44 @@
   "subTitle": "Tanyakan apa saja tentang layanan hukum kami, dan dapatkan jawaban faktual.",
   "faqs": [
     {
-      "question": "Apa itu Bantuan Hukum Gratis dan bagaimana cara mengajukannya?",
-      "answer": "Bantuan Hukum Gratis adalah layanan pendampingan hukum tanpa biaya yang disediakan oleh BPHN untuk memastikan akses keadilan bagi masyarakat kurang mampu. "
+      "question": "Apa yang dimaksud dengan paralegal?",
+      "answer": "Permenkumham 3 Tahun 2021 tentang Paralegal dalam Pemberian Bantuan Hukum mendefinisikan paralegal sebagai setiap orang yang berasal dari komunitas, masyarakat, atau Pemberi Bantuan Hukum yang telah mengikuti pelatihan paralegal, tidak berprofesi sebagai advokat, dan tidak secara mandiri mendampingi Penerima Bantuan Hukum di pengadilan."
     },
     {
-      "question": "Bagaimana mekanisme Konsultasi Hukum Gratis?",
-      "answer": "Layanan Konsultasi Hukum Gratis diselenggarakan oleh LBH dan kantor hukum mitra. Anda juga dapat melakukan konsultasi hukum ke Kantor Badan Pembinaan Hukum Nasional dan melalui Legal Smart Community Channel (LSCC) di https://lsc.bphn.go.id, tanpa dipungut biaya. Anda dapat mengajukan pertanyaan hukum seputar perdata, pidana, keluarga, maupun tata usaha negara dan akan dijawab oleh pengacara, paralegal, atau penyuluh hukum. "
+      "question": "Apa saja syarat menjadi paralegal?",
+      "answer": "Syarat paralegal, yaitu: Warga negara Indonesia; Berusia paling rendah 18 (delapan belas) tahun; Memiliki kemampuan membaca dan menulis; Bukan anggota Tentara Nasional Indonesia, Polisi Republik Indonesia, atau Aparatur Sipil Negara; Memenuhi syarat lain yang ditentukan oleh Pemberi Bantuan Hukum dan tidak bertentangan dengan peraturan perundang-undangan."
     },
     {
-      "question": "Apa itu Pos Bantuan Hukum (Posbakum) dan layanan apa saja yang tersedia?",
-      "answer": "Pos Bantuan Hukum (Posbakum) adalah skema layanan informasi dan konsultasi hukum bagi masyarakat yang diinisiasi oleh BPHN, dengan peran vital kepala desa dan lurah dalam pelaksanaannya :contentReference[oaicite:0]{index=0}. Melalui Posbakum, warga desa dapat mengakses empat layanan utama secara cuma-cuma: informasi hukum, konsultasi kasus, pendampingan penyusunan dokumen hukum, dan mediasi sengketa di tingkat lokal."
+      "question": "Apa yang dimaksud Peacemaker Justice Award?",
+      "answer": "Peacemaker Justice Award merupakan penghargaan oleh Menteri Hukum dan HAM dan Mahkamah Agung Republik Indonesia bagi Kepala Desa/Lurah yang telah berperan dalam menciptakan keamanan dan ketertiban di lingkungan masyarakatnya melalui penyelesaian sengketa secara damai sehingga berdampak pada pertumbuhan dan penciptaan investasi, pariwisata, dan lapangan kerja."
     },
     {
-      "question": "Apa itu Peacemaker Justice Award?",
-      "answer": "Peacemaker Justice Award adalah penghargaan yang diberikan kepada individu atau lembaga yang berhasil menyelesaikan konflik di masyarakat melalui mediasi dan solusi damai, tanpa melalui proses litigasi. Program ini disosialisasikan oleh Kementerian Hukum tingkat provinsi untuk mendorong kepala desa dan lurah memperkuat peran mediasi hukum."
+      "question": "Siapa saja yang bisa mendaftar Peacemaker Justice Award?",
+      "answer": "Kepala Desa/Lurah yang masih aktif menjabat. Termasuk juga sebutan lainnya seperti Wali Nagari (Sumatera Barat), Perbekel (Bali), Pambakal (Kalimantan Selatan) dan sebutan Kepala Desa lainnya."
     },
     {
-      "question": "Bagaimana BPHN menjamin kompetensi paralegal?",
-      "answer": "BPHN memastikan paralegal memiliki standar kompetensi nasional melalui program-program pelatihan dan sertifikasi bersama Organisasi Bantuan Hukum (OBH) dan Lembaga Bantuan Hukum (LBH) terakreditasi. Mulai dari Diklat Paralegal Serentak tingkat nasional, pengembangan modul pelatihan, hingga pendampingan lapangan, semua dirancang untuk menjamin kualitas layanan hukum di masyarakat."
+      "question": "Bagaimana proses pendaftaran dan seleksi Peacemaker Justice Award?",
+      "answer": "Untuk pendaftaran, Kepala Desa/Lurah dapat mengakses web kami pada pja.bphn.go.id. Kemudian mengisi formulir pendaftaran sesuai yang dipersyaratkan."
     },
     {
-      "question": "Apa yang dimaksud dengan pembinaan Jabatan Fungsional Penyuluh Hukum?",
-      "answer": "Pembinaan Jabatan Fungsional Penyuluh Hukum adalah program yang bertujuan meningkatkan profesionalisme penyuluh hukum melalui standar kompetensi, pelatihan, dan pendampingan lapangan. Penyuluh Hukum didorong untuk membentuk komunitas hukum lokal, berkolaborasi dengan Organisasi Bantuan Hukum (OBH)."
+      "question": "Apa yang dimaksud dengan bantuan hukum?",
+      "answer": "Bantuan Hukum adalah jasa hukum yang diberikan oleh Pemberi Bantuan Hukum secara cuma-cuma kepada Penerima Bantuan Hukum yaitu orang atau kelompok orang miskin. Pemberi Bantuan Hukum adalah lembaga bantuan hukum atau organisasi kemasyarakatan yang memberi layanan Bantuan Hukum yang diselenggarakan oleh Kementerian Hukum dan HAM RI Badan Pembinaan Hukum Nasional."
+    },
+    {
+      "question": "Apa perbedaan program Bantuan Hukum yang diselenggarakan oleh Kementerian Hukum dengan program-program pemerintah lainnya berkaitan dengan akses keadilan?",
+      "answer": "Sebagai salah satu program prioritas nasional, keberadaan program Bantuan Hukum ini merupakan bentuk kehadiran negara dalam memberikan akses keadilan bagi warga negara yang memiliki masalah hukum. Berdasarkan Undang-Undang Nomor 16 Tahun 2011 tentang Bantuan Hukum, Bantuan Hukum adalah jasa hukum yang diberikan secara cuma-cuma oleh Pemberi Bantuan Hukum kepada Penerima Bantuan Hukum."
+    },
+    {
+      "question": "Apa saja ruang lingkup layanan bantuan hukum?",
+      "answer": "Ruang lingkup Bantuan Hukum terdiri atas: Litigasi (oleh advokat dan dibantu paralegal) yang meliputi hukum perdata, pidana, dan tata usaha negara; serta Non-litigasi (oleh paralegal dan didampingi advokat) yang meliputi penyuluhan hukum, pemberdayaan masyarakat, konsultasi hukum, investigasi perkara, penelitian hukum, mediasi, negosiasi, pendampingan di luar pengadilan, dan/atau penyusunan dokumen hukum."
+    },
+    {
+      "question": "Apa yang dimaksud dengan Posbankum?",
+      "answer": "Posbankum adalah Pos Bantuan Hukum yang berada di desa/kelurahan sebagai jaminan tersedianya layanan bantuan hukum yang mudah diakses oleh masyarakat pedesaan/perkotaan, melalui kolaborasi antara Kementerian Hukum, Kementerian Dalam Negeri, Kementerian Desa, organisasi bantuan hukum, kepala desa, perangkat desa, dan paralegal."
+    },
+    {
+      "question": "Apa itu Jabatan Fungsional Penyuluh Hukum?",
+      "answer": "Jabatan Fungsional Penyuluh Hukum adalah jabatan yang mempunyai ruang lingkup, tugas, tanggung jawab, wewenang, dan hak untuk melakukan kegiatan penyuluhan hukum. Penyuluhan hukum mencakup penyebarluasan informasi dan pemahaman terhadap norma hukum dan peraturan perundang-undangan, serta pengembangan kualitas penyuluhan hukum untuk membentuk budaya hukum dan meningkatkan kesadaran hukum masyarakat."
     }
   ]
 }

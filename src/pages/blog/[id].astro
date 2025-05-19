@@ -68,12 +68,12 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
       name: SITE.title,
       logo: {
         "@type": "ImageObject",
-        url: "https://screwfast.uk/favicon.ico",
+        url: `${SITE.url}/favicon.ico`,
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://screwfast.uk/blog/${post.id.replace(/^en\//, "")}`,
+      "@id": `${SITE.url}/blog/${post.id.replace(/^id\//, "")}`,
     },
   }}
 >

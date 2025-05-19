@@ -10,11 +10,15 @@ import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
 import blueprints from "@images/blueprints-image.avif";
 import personWorking from "@images/person-working.avif";
 import beforeAfter from "@images/before-after.avif";
-import constructionWorkers from "@images/construction-workers.avif";
-import aerialView from "@images/aerial-view.avif";
+import posbakum1 from "@images/services/posbakum_1.jpeg";
+import posbakum2 from "@images/services/posbakum_2.webp";
+import posbakum3 from "@images/services/posbakum_3.jpg";
+import posbakum4 from "@images/services/posbakum_4.jpg";
+import paralegal1 from "@images/services/paralegal_1.webp";
+import paralegal2 from "@images/services/paralegal_2.webp";
+import penyuluh1 from "@images/services/penyuluh1.jpg";
+import penyuluh2 from "@images/services/penyuluh2.webp";
 import usingTools from "@images/using-tools.avif";
-import progressBuilding from "@images/progress-building.avif";
-import underConstruction from "@images/under-construction.avif";
 import { SITE } from "@data/constants";
 
 interface Article {
@@ -49,12 +53,12 @@ const articles: Article[] = [
     isRightSection: false,
     title: "Konsultasi Hukum Gratis",
     subTitle:
-      "Punya masalah hukum? Kami menyediakan layanan konsultasi hukum gratis untuk perkara perdata, pidana, keluarga, hingga tata usaha negara. Konsultasikan persoalan Anda dengan para ahli hukum dan paralegal kami.",
+      "Punya masalah hukum? Kami menyediakan layanan konsultasi hukum gratis untuk perkara perdata, pidana, keluarga, hingga tata usaha negara. Konsultasikan persoalan Anda dengan para penyuluh hukum kami.",
     img: beforeAfter,
     imgAlt: "Konsultasi gratis dengan penasihat hukum",
     btnExists: true,
     btnTitle: "Ajukan Konsultasi",
-    btnURL: "#",
+    btnURL: "https://lsc.bphn.go.id/konsultasi",
   },
   {
     isRightSection: true,
@@ -62,9 +66,9 @@ const articles: Article[] = [
     subTitle:
       "Kami memperkuat akses keadilan dengan meningkatkan kapasitas para paralegal di seluruh Indonesia. Program pelatihan dan sertifikasi kami dirancang agar para paralegal mampu memberikan layanan hukum yang tepat dan efektif di komunitasnya.",
     single: false,
-    imgOne: constructionWorkers,
+    imgOne: paralegal1,
     imgOneAlt: "Pelatihan untuk paralegal",
-    imgTwo: aerialView,
+    imgTwo: paralegal2,
     imgTwoAlt: "Kegiatan workshop paralegal",
   },
   {
@@ -81,21 +85,24 @@ const articles: Article[] = [
     subTitle:
       "Posbakum hadir di pengadilan dan berbagai wilayah pelosok untuk memberikan layanan langsung berupa informasi hukum, konsultasi, dan bantuan penyusunan dokumen hukum secara cuma-cuma. Mudah diakses, tanpa biaya.",
     single: false,
-    imgOne: progressBuilding,
-    imgOneAlt: "Posbakum di pengadilan",
-    imgTwo: underConstruction,
+    imgOne: posbakum3,
+    imgOneAlt: "Kanwil Kemenkum DK Jakarta dan BPHN Sosialisasikan Hak Hukum Atas Tanah dan Pembentukan Posbakum di Kelurahan Pondok Ranggon",
+    imgTwo: posbakum4,
     imgTwoAlt: "Warga mendapatkan layanan Posbakum",
     btnExists: true,
     btnTitle: "Temukan Posbakum Terdekat",
     btnURL: "#",
   },
   {
-    isRightSection: false,
+    isRightSection: true,
     title: "Pembinaan Penyuluh Hukum",
     subTitle:
       "Kami melakukan pembinaan berkelanjutan bagi Jabatan Fungsional Penyuluh Hukum. Melalui pelatihan, pendampingan, dan penyediaan sarana digital, kami mendukung mereka dalam meningkatkan kesadaran dan literasi hukum di tengah masyarakat.",
-    img: blueprints,
-    imgAlt: "Sesi pelatihan penyuluh hukum",
+    single: false,
+    imgOne: penyuluh1,
+    imgOneAlt: "Peluhmi",
+    imgTwo: penyuluh2,
+    imgTwoAlt: "Sesi pelatihan penyuluh hukum",
   },
 ];
 
@@ -109,13 +116,13 @@ const ogTitle = "Akses Keadilan untuk Semua | Layanan Hukum BPHN";
 ---
 
 <MainLayout
-  title="Layanan Hukum | BPHN"
-  customDescription="Kami hadir untuk memperluas akses keadilan melalui layanan bantuan hukum gratis, konsultasi hukum, pelatihan paralegal, Posbakum, penghargaan Peacemaker Justice Award, dan pembinaan penyuluh hukum di seluruh Indonesia."
-  customOgTitle="Akses Keadilan untuk Semua | Layanan Hukum BPHN"
+  title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://bphn.go.id/layanan-hukum",
+    "@id": "https://bantuanhukum.bphn.go.id/services",
     url: "https://bphn.go.id/layanan-hukum",
     name: "Layanan Hukum | BPHN",
     description:
@@ -176,7 +183,7 @@ const ogTitle = "Akses Keadilan untuk Semua | Layanan Hukum BPHN";
     })
   }
   {/* FeaturesStats section showcases essential stats valuable to users */}
-  <FeaturesStats
+  <!--<FeaturesStats
     title="By the Numbers"
     subTitle="Our commitment to quality and reliability is evident in every project we undertake. At ScrewFast, we are dedicated to delivering industry-leading services that ensure your construction projects are built to last."
     mainStatTitle="96%"
@@ -195,5 +202,5 @@ const ogTitle = "Akses Keadilan untuk Semua | Layanan Hukum BPHN";
         description: "client growth year-over-year",
       },
     ]}
-  />
+  />-->
 </MainLayout>

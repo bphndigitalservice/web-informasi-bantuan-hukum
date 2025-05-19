@@ -14,7 +14,7 @@ import type { CollectionEntry } from "astro:content";
 // Fetching all the product related content and sorting it by main.id
 const product: CollectionEntry<"products">[] = (
   await getCollection("products", ({ id }) => {
-    return id.startsWith("fr/");
+    return id.startsWith("en/");
   })
 ).sort(
   (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>

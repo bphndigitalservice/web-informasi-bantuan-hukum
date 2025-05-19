@@ -1,29 +1,29 @@
 {
-  "subTitle": "Ask us anything about our brand and products, and get factual responses.",
+  "subTitle": "Tanyakan apa saja tentang layanan hukum kami, dan dapatkan jawaban faktual.",
   "faqs": [
     {
-      "question": "What types of tools are included in the Starter Kit?",
-      "answer": "The Starter Kit features essential hand and power tools for diverse DIY projects, including hammers, drills, screwdrivers, and a variety of fasteners. It's a curated selection to help beginners and experienced DIYers alike tackle most home improvement tasks."
+      "question": "Apa itu Bantuan Hukum Gratis dan bagaimana cara mengajukannya?",
+      "answer": "Bantuan Hukum Gratis adalah layanan pendampingan hukum tanpa biaya yang disediakan oleh BPHN untuk memastikan akses keadilan bagi masyarakat kurang mampu. "
     },
     {
-      "question": "Can I upgrade from the Starter Kit to the Professional Toolbox?",
-      "answer": "Absolutely! You can upgrade to the Professional Toolbox at any time to access a wider range of high-quality tools, enjoy priority customer support, and receive exclusive content. Contact our support team for a seamless transition."
+      "question": "Bagaimana mekanisme Konsultasi Hukum Gratis?",
+      "answer": "Layanan Konsultasi Hukum Gratis diselenggarakan oleh LBH dan kantor hukum mitra. Anda juga dapat melakukan konsultasi hukum ke Kantor Badan Pembinaan Hukum Nasional dan melalui Legal Smart Community Channel (LSCC) di https://lsc.bphn.go.id, tanpa dipungut biaya. Anda dapat mengajukan pertanyaan hukum seputar perdata, pidana, keluarga, maupun tata usaha negara dan akan dijawab oleh pengacara, paralegal, atau penyuluh hukum. "
     },
     {
-      "question": "What discounts are available for bulk orders through the Professional Toolbox plan?",
-      "answer": "Professional Toolbox members are entitled to exclusive discounts on bulk orders, the percentage of which may vary depending on the order volume. Get in touch with us to discuss your needs, and we'll provide a tailored discount structure."
+      "question": "Apa itu Pos Bantuan Hukum (Posbakum) dan layanan apa saja yang tersedia?",
+      "answer": "Pos Bantuan Hukum (Posbakum) adalah skema layanan informasi dan konsultasi hukum bagi masyarakat yang diinisiasi oleh BPHN, dengan peran vital kepala desa dan lurah dalam pelaksanaannya :contentReference[oaicite:0]{index=0}. Melalui Posbakum, warga desa dapat mengakses empat layanan utama secara cuma-cuma: informasi hukum, konsultasi kasus, pendampingan penyusunan dokumen hukum, dan mediasi sengketa di tingkat lokal."
     },
     {
-      "question": "What kind of customer support can I expect?",
-      "answer": "All our customers receive dedicated email support. With the Starter Kit, you'll receive our standard support, while the Professional Toolbox plan upgrades you to priority support, meaning faster response times and specialized assistance."
+      "question": "Apa itu Peacemaker Justice Award?",
+      "answer": "Peacemaker Justice Award adalah penghargaan yang diberikan kepada individu atau lembaga yang berhasil menyelesaikan konflik di masyarakat melalui mediasi dan solusi damai, tanpa melalui proses litigasi. Program ini disosialisasikan oleh Kementerian Hukum tingkat provinsi untuk mendorong kepala desa dan lurah memperkuat peran mediasi hukum."
     },
     {
-      "question": "How current are the online resources and tutorials?",
-      "answer": "We regularly update our online resources and tutorials to reflect the latest trends in DIY and construction, as well as introductions to new tools and techniques. Our material aims to be comprehensive and user-friendly for all skill levels."
+      "question": "Bagaimana BPHN menjamin kompetensi paralegal?",
+      "answer": "BPHN memastikan paralegal memiliki standar kompetensi nasional melalui program-program pelatihan dan sertifikasi bersama Organisasi Bantuan Hukum (OBH) dan Lembaga Bantuan Hukum (LBH) terakreditasi. Mulai dari Diklat Paralegal Serentak tingkat nasional, pengembangan modul pelatihan, hingga pendampingan lapangan, semua dirancang untuk menjamin kualitas layanan hukum di masyarakat."
     },
     {
-      "question": "Does ScrewFast offer services for large-scale construction projects?",
-      "answer": "Yes, our Enterprise Solutions are designed for larger companies requiring comprehensive services. We provide consultation, planning, and supply of high-grade tools and materials, as well as staffing solutions for substantial construction needs. Contact us for a customized quote."
+      "question": "Apa yang dimaksud dengan pembinaan Jabatan Fungsional Penyuluh Hukum?",
+      "answer": "Pembinaan Jabatan Fungsional Penyuluh Hukum adalah program yang bertujuan meningkatkan profesionalisme penyuluh hukum melalui standar kompetensi, pelatihan, dan pendampingan lapangan. Penyuluh Hukum didorong untuk membentuk komunitas hukum lokal, berkolaborasi dengan Organisasi Bantuan Hukum (OBH)."
     }
   ]
 }

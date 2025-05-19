@@ -5,7 +5,7 @@ import Btn404 from "@components/ui/buttons/Btn404.astro";
 import { SITE } from "@data/constants";
 
 // Define types for translations
-type TranslationKeys = "en" | "fr";
+type TranslationKeys = "en" | "id";
 type Translations = {
   [key in TranslationKeys]: {
     pageTitle: string;
@@ -18,25 +18,25 @@ type Translations = {
 // Define variables for page content
 const defaultLang: TranslationKeys = "en";
 const translations: Translations = {
+  id: {
+    pageTitle: `Halaman Tidak Ditemukan | ${SITE.title}`,
+    subTitle: "Oops, ini bukan halaman yang kamu cari!",
+    content:
+      "Jangan khawatir, kamu masih bisa menjelajahi informasi penting seputar bantuan hukum dan budaya hukum. Yuk, kembali ke jalur yang benar!",
+    btnTitle: "Kembali",
+  },
   en: {
     pageTitle: `Page Not Found | ${SITE.title}`,
-    subTitle: "Oops, this isn't the tool you were looking for!",
+    subTitle: "Oops, this isn't the page you're looking for!",
     content:
-      "Don't let this hiccup slow you down. Let's get you back to building your masterpiece.",
+      "Don't worry, you can still explore important information about legal aid and legal culture. Let's get you back on track!",
     btnTitle: "Go Back",
-  },
-  fr: {
-    pageTitle: `Page Non Trouvée | ${SITE.title}`,
-    subTitle: "Oops, ce n'est pas l'outil que vous recherchiez!",
-    content:
-      "Ne laissez pas ce contretemps vous ralentir. Revenons à la construction de votre chef-d'œuvre.",
-    btnTitle: "Retournez",
   },
 };
 
 // Determine language from the URL
 const urlPath = Astro.url.pathname;
-const langCodeMatch = urlPath.match(/^\/(en|fr)\//);
+const langCodeMatch = urlPath.match(/^\/(en|id)\//);
 const lang: TranslationKeys = langCodeMatch
   ? (langCodeMatch[1] as TranslationKeys)
   : defaultLang;

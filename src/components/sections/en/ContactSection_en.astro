@@ -9,12 +9,13 @@ import TextAreaInput from "@components/ui/forms/input/TextAreaInput.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 
 // Define the variables that will be used in this component
-const title: string = "Contactez-nous";
+const title: string = "Contact Us";
 const subTitle: string =
-  "Vous avez des questions ou souhaitez discuter d'un projet ? Contactez-nous et laissons-nous élaborer la solution parfaite avec nos outils et services.";
-const formTitle: string = "Remplissez le formulaire ci-dessous";
+  "Do you have questions or want to discuss a project? Get in touch with us and let’s craft the perfect solution using our tools and services.";
+const formTitle: string = "Fill out the form below";
 const formSubTitle: string =
-  "Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.";
+  "We’ll get back to you within 1 to 2 business days.";
+
 ---
 
 <!-- Contact Us -->
@@ -75,45 +76,45 @@ const formSubTitle: string =
         </form>
       </div>
 
-      <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
+      <!-- ContactIconBlocks are used to display different methods of contacting, including visiting the office, email, browsing the knowledge base, and FAQ. -->
       <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
         <ContactIconBlock
-          heading="Base de connaissances"
-          content="Parcourez tous nos articles de base de connaissances."
+          heading="Knowledge Base"
+          content="Browse all our knowledge base articles."
           isLinkVisible={true}
-          linkTitle="Visiter les guides et tutoriels"
+          linkTitle="Visit guides and tutorials"
           linkURL="#"
           isArrowVisible={true}
-          ><Icon name="question" />
+        ><Icon name="question" />
         </ContactIconBlock>
 
         <ContactIconBlock
           heading="FAQ"
-          content="Explorez notre FAQ pour des réponses rapides et claires aux questions courantes."
+          content="Explore our FAQ for quick and clear answers to common questions."
           isLinkVisible={true}
-          linkTitle="Visiter la FAQ"
+          linkTitle="Visit the FAQ"
           linkURL="#"
           isArrowVisible={true}
-          ><Icon name="chatBubble" />
+        ><Icon name="chatBubble" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="Visitez notre bureau"
+          heading="Visit Our Office"
           content="ScrewFast UK"
           isAddressVisible={true}
           addressContent="72 Union Terrace, E10 4PE London"
-          ><Icon name="mapPin" />
+        ><Icon name="mapPin" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="Contactez-nous par e-mail"
-          content="Préférez-vous le texte écrit ? Envoyez-nous un e-mail à"
+          heading="Contact Us by Email"
+          content="Prefer written communication? Send us an email at"
           isLinkVisible={true}
           linkTitle="support@screwfast.uk"
           linkURL="#"
-          ><Icon name="envelopeOpen" />
+        ><Icon name="envelopeOpen" />
         </ContactIconBlock>
       </div>
     </div>
-  </div>
+    </div>
 </section>

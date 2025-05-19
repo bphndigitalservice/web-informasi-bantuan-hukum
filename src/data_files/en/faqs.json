@@ -1,0 +1,29 @@
+{
+  "subTitle": "Ask us anything about our legal services, and get factual answers.",
+  "faqs": [
+    {
+      "question": "What is Free Legal Aid and how can I apply for it?",
+      "answer": "Free Legal Aid is a cost-free legal assistance service provided by BPHN to ensure access to justice for underprivileged communities. You can apply directly via the official BPHN page at https://bphn.go.id/layanan/bantuan-hukum by completing the online form and submitting the required documents there. :contentReference[oaicite:0]{index=0}"
+    },
+    {
+      "question": "How does the Free Legal Consultation work?",
+      "answer": "The Free Legal Consultation service is organized by accredited Legal Aid Organizations (LBH) and partner law offices. You can also consult at the BPHN office or via the Legal Smart Community Channel (LSCC) at https://lsc.bphn.go.id, all free of charge. You may ask questions on civil, criminal, family, or administrative law and receive answers from lawyers, paralegals, or legal counselors within 1–2 business days. :contentReference[oaicite:1]{index=1}"
+    },
+    {
+      "question": "What is a Legal Aid Post (Posbakum) and what services are available?",
+      "answer": "A Legal Aid Post (Posbakum) is a legal information and consultation scheme initiated by BPHN, with village chiefs and sub-district heads playing a vital role in its implementation. Through Posbakum, villagers can access four main free services: legal information, case consultation, assistance in preparing legal documents, and local dispute mediation. :contentReference[oaicite:2]{index=2}"
+    },
+    {
+      "question": "What is the Peacemaker Justice Award?",
+      "answer": "The Peacemaker Justice Award honors individuals or institutions that successfully resolve community conflicts through mediation and peaceful solutions without litigation. This program is socialized by provincial Justice and Human Rights offices to encourage village chiefs and sub-district heads to strengthen legal mediation roles. :contentReference[oaicite:3]{index=3}"
+    },
+    {
+      "question": "How does BPHN ensure paralegal competency?",
+      "answer": "BPHN guarantees that paralegals meet national competency standards through training and certification programs run jointly with accredited Legal Aid Organizations (OBH) and Legal Aid Institutes (LBH). From nationwide synchronized paralegal training to module development and field mentoring, all initiatives are designed to ensure high-quality legal services in the community. :contentReference[oaicite:4]{index=4}"
+    },
+    {
+      "question": "What is the Functional Legal Counselor development program?",
+      "answer": "The Functional Legal Counselor development program aims to enhance the professionalism of legal counselors through competency standards, training, and field mentoring. Legal counselors are encouraged to build local legal communities and collaborate with Legal Aid Organizations (OBH). :contentReference[oaicite:5]{index=5}"
+    }
+  ]
+}

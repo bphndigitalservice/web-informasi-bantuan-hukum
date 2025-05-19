@@ -1,0 +1,169 @@
+---
+// Import necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import MainSection from "@components/ui/blocks/MainSection.astro";
+import LeftSection from "@components/ui/blocks/LeftSection.astro";
+import RightSection from "@components/ui/blocks/RightSection.astro";
+import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+// Import necessary images
+import blueprints from "@images/blueprints-image.avif";
+import personWorking from "@images/person-working.avif";
+import beforeAfter from "@images/before-after.avif";
+import constructionWorkers from "@images/construction-workers.avif";
+import aerialView from "@images/aerial-view.avif";
+import usingTools from "@images/using-tools.avif";
+import progressBuilding from "@images/progress-building.avif";
+import underConstruction from "@images/under-construction.avif";
+
+interface Article {
+  isRightSection: boolean;
+  title: string;
+  subTitle: string;
+  btnExists?: boolean;
+  btnTitle?: string;
+  btnURL?: string;
+  single?: boolean;
+  img?: any;
+  imgAlt?: string;
+  imgOne?: any;
+  imgOneAlt?: string;
+  imgTwo?: any;
+  imgTwoAlt?: string;
+}
+
+const articles: Article[] = [
+  {
+    isRightSection: true,
+    title: "Free Legal Aid Services",
+    subTitle:
+      "We are committed to providing access to justice for all. Our Free Legal Aid services ensure that underprivileged citizens can obtain legal representation and protection of their rights in court, without financial barriers.",
+    single: false,
+    imgOne: blueprints,
+    imgOneAlt: "Legal aid consultation scene",
+    imgTwo: personWorking,
+    imgTwoAlt: "People discussing legal cases",
+  },
+  {
+    isRightSection: false,
+    title: "Free Legal Consultation",
+    subTitle:
+      "Need legal advice? Our team offers free legal consultations on civil, criminal, family, and administrative law matters. Connect with our legal professionals and paralegals ready to help you find the best resolution.",
+    img: beforeAfter,
+    imgAlt: "Free consultation with legal advisors",
+    btnExists: true,
+    btnTitle: "Book a Consultation",
+    btnURL: "#",
+  },
+  {
+    isRightSection: true,
+    title: "Empowering Paralegals",
+    subTitle:
+      "We strengthen access to justice by enhancing the skills of paralegals across the country. Our paralegal competency development programs ensure community legal assistants are equipped with up-to-date knowledge and practical tools to assist the public effectively.",
+    single: false,
+    imgOne: constructionWorkers,
+    imgOneAlt: "Paralegal training session",
+    imgTwo: aerialView,
+    imgTwoAlt: "Paralegal workshop activities",
+  },
+  {
+    isRightSection: false,
+    title: "Peacemaker Justice Award",
+    subTitle:
+      "We recognize and honor individuals and organizations who promote access to justice and peace in the community. The Peacemaker Justice Award is our way of celebrating outstanding contributions to legal empowerment and conflict resolution.",
+    img: usingTools,
+    imgAlt: "Award ceremony for community justice heroes",
+  },
+  {
+    isRightSection: true,
+    title: "Legal Aid Posts (Posbakum)",
+    subTitle:
+      "Located in courts and remote areas, our Legal Aid Posts offer walk-in services where the public can obtain information, legal advice, and assistance in preparing legal documents. No charge, no hassle—just justice.",
+    single: false,
+    imgOne: progressBuilding,
+    imgOneAlt: "Legal Aid Post at courthouse",
+    imgTwo: underConstruction,
+    imgTwoAlt: "Community accessing Posbakum services",
+    btnExists: true,
+    btnTitle: "Find a Posbakum Near You",
+    btnURL: "#",
+  },
+  {
+    isRightSection: false,
+    title: "Developing Legal Educators",
+    subTitle:
+      "We provide guidance and capacity building for Legal Counselors (Penyuluh Hukum) as functional civil servants. Through training, certification, and digital tools, we aim to expand legal awareness and literacy across Indonesia.",
+    img: blueprints,
+    imgAlt: "Training session for Legal Educators",
+  },
+];
+---
+
+<MainLayout
+  title="Services | ScrewFast"
+  lang="en"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://screwfast.uk/fr/services",
+    url: "https://screwfast.uk/fr/services",
+    name: "Services de Consultation d'Experts | ScrewFast",
+    description:
+      "Unissant l'expertise à votre vision, ScrewFast fournit un service exceptionnel et des solutions complètes dans le secteur du matériel et de la construction, de la consultation à l'achèvement du projet.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://screwfast.uk/fr",
+      name: "ScrewFast",
+      description:
+        "ScrewFast propose des outils matériels de premier ordre et des services de construction experts pour répondre à tous vos besoins de projet.",
+    },
+    inLanguage: "en",
+  }}
+>
+  {/* MainSection is the introductory section of the page, it also contains a CTA button */}
+  <MainSection
+    title="Justice Access for All"
+    subTitle="BPHN is committed to expanding the reach of legal services to the community through free legal aid, open legal consultations, paralegal training and competency development, Legal Aid Posts (Posbakum), and the development of the Functional Legal Counselor position. We also recognize contributions to peace through the Peacemaker Justice Award."
+    btnExists={true}
+    btnTitle="Explore Our Services"
+    btnURL={getRelativeLocaleUrl("en", "#layanan")}
+  />
+
+  {/* RightSection and LeftSection contain details about various services along with pertinent imagery.
+  They alternate for variety in design.
+  The 'btnExists' property is used to toggle the display of a button in these sections.
+  When btnExists={true}, a button is displayed.
+  This can be used to link to more detailed information or related resources.
+  RightSection can also conditionally render one or two images based on the 'single' property.
+  If 'single' is true, it displays one image, otherwise it displays two.
+  */}
+  {
+    articles.map((article) => {
+      return article.isRightSection ? (
+        <RightSection
+          title={article.title}
+          subTitle={article.subTitle}
+          single={article.single}
+          imgOne={article.imgOne}
+          imgOneAlt={article.imgOneAlt}
+          imgTwo={article.imgTwo}
+          imgTwoAlt={article.imgTwoAlt}
+          btnExists={article.btnExists}
+          btnTitle={article.btnTitle}
+          btnURL={article.btnURL}
+        />
+      ) : (
+        <LeftSection
+          title={article.title}
+          subTitle={article.subTitle}
+          img={article.img}
+          imgAlt={article.imgAlt}
+          btnExists={article.btnExists}
+          btnTitle={article.btnTitle}
+          btnURL={article.btnURL}
+        />
+      );
+    })
+  }
+</MainLayout>

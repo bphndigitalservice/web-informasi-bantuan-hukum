@@ -10,20 +10,20 @@ import { SITE } from "@data/constants";
 
 // Get all blogs post in English and sort them based on publish date
 
-const englishBlogEntries = await getCollection("blog", ({ id }) => {
-  return id.startsWith("en/");
+const bahasaBlogEntries = await getCollection("blog", ({ id }) => {
+  return id.startsWith("id/");
 });
 
-const englishInsightsEntries = await getCollection("insights", ({ id }) => {
-  return id.startsWith("en/");
+const bahasaInsightsEntries = await getCollection("insights", ({ id }) => {
+  return id.startsWith("id/");
 });
 
-const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
+const blogPosts: CollectionEntry<"blog">[] = bahasaBlogEntries.sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 // Get all insights posts
-const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
+const insightPosts: CollectionEntry<"insights">[] = bahasaInsightsEntries;
 
 // Separate the most recent post from others
 const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
@@ -91,15 +91,15 @@ const ogTitle = "Blog Bantuan Hukum & Kesadaran Hukum | Portal Informasi Bantuan
   >
     {/* Blog posts grid */}
     <div class="grid gap-6 lg:grid-cols-2">
-      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} />)}
+      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry}  />)}
     </div>
   </section>
-<!--  {/* Most recent blog post */}
+  {/* Most recent blog post */}
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
     <CardBlogRecent blogEntry={mostRecentPost} />
-  </section>-->
+  </section>
   {/* Insights section */}
   <!--<section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"

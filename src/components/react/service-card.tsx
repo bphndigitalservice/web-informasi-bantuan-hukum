@@ -81,10 +81,10 @@ function ServiceCard({ href, icon, title, description }: ServiceCardProps) {
       className="flex flex-col items-center justify-center rounded-3xl border-2 border-[#152553] p-3 transition-shadow duration-300 hover:shadow-md sm:p-6"
     >
       <div className="mb-4">{icon}</div>
-      <h3 className="text-center text-sm font-medium tracking-wide text-slate-800 uppercase">
+      <h3 className="text-center text-sm font-bold tracking-wide text-slate-800 uppercase">
         {title}
       </h3>
-      <p className="mt-2 hidden text-center text-xs text-slate-600 md:block">
+      <p className="mt-2 text-center text-xs text-slate-600 md:block">
         {description}
       </p>
     </a>

@@ -62,10 +62,10 @@ interface Props {
   }
     <!-- Action Button Section: This section includes two CTAs with their own styles and URL -->
     <div class="mt-7 grid w-full gap-3 sm:inline-flex">
-      {primaryBtn && 
+      {primaryBtn &&
       <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
       }
-      {secondaryBtn && 
+      {secondaryBtn &&
       <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
       }
     </div>
@@ -80,14 +80,14 @@ interface Props {
   <div class="flex w-full">
       <div class="top-12 overflow-hidden">
 	{src && alt &&
-	<Image
-        src={src}
-        alt={alt}
-        class="h-full w-full scale-110 object-cover object-center"
-        draggable={"false"}
-        loading={"eager"}
-        format={"avif"}
-	 />
+    <Image
+      src={src}
+      alt={alt}
+      class="h-full w-full scale-110 object-cover object-center hidden md:block"
+      draggable={"false"}
+      loading={"eager"}
+      format={"avif"}
+	/>
 	}
     </div>
   </div>

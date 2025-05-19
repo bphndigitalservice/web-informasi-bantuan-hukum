@@ -12,7 +12,7 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
-// Update getStaticPaths for French posts
+// Update getStaticPaths for English posts
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blog", ({ id }) =>
     id.startsWith("en/")
@@ -20,19 +20,24 @@ export async function getStaticPaths() {
   return blogPosts.map((post) => {
     const idWithoutLang = post.id.replace(/^en\//, ""); // Remove the "en/" prefix
     return {
-      params: { lang: "fr", id: idWithoutLang },
+      params: { id: idWithoutLang },
       props: { post },
     };
   });
 }
 
+// Get the current post's data
 const { post } = Astro.props;
 
-// Fetch related posts
 const blogPosts: CollectionEntry<"blog">[] = await getCollection(
   "blog",
   ({ id }) => id.startsWith("en/")
 );
+
+// Filter out the current post to get related posts
+// Note: This is a very basic way of choosing related posts, just for the purpose of the example.
+// In a production site, you might want to implement a more robust algorithm, choosing related posts based on tags, categories, dates, authors, or keywords.
+// See example: https://blog.codybrunner.com/2024/adding-related-articles-with-astro-content-collections/
 const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
   (blogEntry) => blogEntry.id !== post.id
 );
@@ -40,13 +45,12 @@ const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
 // For the meta description, use the first paragraph of content if available
 const metaDescription =
-  post.data.contents[0] || `Lisez ${post.data.title} sur le blog de ScrewFast`;
+  post.data.contents[0] || `Read ${post.data.title} on Bantuan Hukum's blog`;
 const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
 ---
 
 <MainLayout
   title={pageTitle}
-  lang="fr"
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
@@ -64,14 +68,13 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
       name: SITE.title,
       logo: {
         "@type": "ImageObject",
-        url: "https://screwfast.uk/favicon.ico",
+        url: `${SITE.url}/favicon.ico`,
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://screwfast.uk/fr/blog/${post.id.replace(/^fr\//, "")}`,
+      "@id": `${SITE.url}/blog/${post.id.replace(/^en\//, "")}`,
     },
-    inLanguage: "en",
   }}
 >
   <section class="mx-auto max-w-3xl px-4 pt-6 pb-12 sm:px-6 lg:px-8 lg:pt-10">
@@ -82,16 +85,10 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
           <div class="grow">
             <div class="flex items-center justify-between gap-x-2">
               <div>
-                <div
-                  class="hs-tooltip inline-block [--placement:bottom] [--trigger:hover]"
-                >
-                  {/* Post metadata and author info */}
-                  <span
-                    class="font-bold text-neutral-700 dark:text-neutral-300"
-                  >
-                    {post.data.author}
-                  </span>
-                </div>
+                {/* Post metadata and author info */}
+                <span class="font-bold text-neutral-700 dark:text-neutral-300">
+                  {post.data.author}
+                </span>
                 <ul class="text-xs text-neutral-500">
                   <li
                     class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden dark:text-neutral-400 dark:before:bg-neutral-600"
@@ -169,9 +166,9 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
       </div>
     </div>
     <PostFeedback
-      title="Cet article était-il utile?"
-      firstChoice="Oui"
-      secondChoice="Non"
+      title="Was this post helpful?"
+      firstChoice="Yes"
+      secondChoice="No"
     />
   </section>
 
@@ -181,16 +178,12 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
       <h2
         class="text-2xl font-bold text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
       >
-        Articles connexes
+        Related articles
       </h2>
     </div>
 
     <div class="grid grid-cols-2 gap-6">
-      {
-        relatedPosts.map((entry) => (
-          <CardRelated blogEntry={entry} recentBlogLocale="fr" />
-        ))
-      }
+      {relatedPosts.map((entry) => <CardRelated blogEntry={entry} />)}
     </div>
   </section>
 </MainLayout>

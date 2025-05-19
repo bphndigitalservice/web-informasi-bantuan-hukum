@@ -43,13 +43,13 @@ const socialImageRes = await getImage({
 const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
 
 const languages: { [key: string]: string } = {
-  en: "",
-  fr: "fr",
+  id: "id",
+  en: "en",
 };
 
 function createHref(lang: string, prefix: string, path: string): string {
   // Remove any existing language prefix
-  const cleanPath = path.replace(/^\/(fr|en)\//, "/");
+  const cleanPath = path.replace(/^\/(id|en)\//, "/");
 
   // Add the correct language prefix if needed
   const basePath = prefix ? `/${prefix}${cleanPath}` : cleanPath;
@@ -62,7 +62,7 @@ const fullPath: string = Astro.url.pathname;
 
 const alternateLanguageLinks: string = Object.entries(languages)
   .map(([lang, prefix]: [string, string]) => {
-    const cleanPath = fullPath.replace(/^\/(fr|en)\//, "/");
+    const cleanPath = fullPath.replace(/^\/(id|en)\//, "/");
     const href: string = createHref(lang, prefix, cleanPath);
 
     return `<link rel="alternate" hreflang="${lang}" href="${href}" />`;

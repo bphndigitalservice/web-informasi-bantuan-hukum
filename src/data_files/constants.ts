@@ -32,11 +32,11 @@ export const SEO = {
 };
 
 export const OG = {
-  locale: "en_US",
+  locale: "id_ID",
   type: "website",
   url: SITE.url,
-  title: `${SITE.title}: : Hardware Tools & Construction Services`,
-  description: "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
+  title: `${SITE.title}`,
+  description: "Portal ini merupakan pusat informasi, edukasi, dan kolaborasi dalam rangka memperluas akses bantuan hukum dan meningkatkan kesadaran hukum masyarakat. Temukan informasi tentang paralegal, pos bantuan hukum desa, penyuluhan hukum, serta komunitas cerdas hukum di sini.",
   image: ogImageSrc,
 };
 

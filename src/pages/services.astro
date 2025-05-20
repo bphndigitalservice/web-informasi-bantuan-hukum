@@ -4,14 +4,11 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import MainSection from "@components/ui/blocks/MainSection.astro";
 import LeftSection from "@components/ui/blocks/LeftSection.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
-import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
 
 // Import necessary images
 import blueprints from "@images/blueprints-image.avif";
 import personWorking from "@images/person-working.avif";
 import beforeAfter from "@images/before-after.avif";
-import posbakum1 from "@images/services/posbakum_1.jpeg";
-import posbakum2 from "@images/services/posbakum_2.webp";
 import posbakum3 from "@images/services/posbakum_3.jpg";
 import posbakum4 from "@images/services/posbakum_4.jpg";
 import paralegal1 from "@images/services/paralegal_1.webp";
@@ -47,7 +44,7 @@ const articles: Article[] = [
     imgOne: blueprints,
     imgOneAlt: "Ilustrasi konsultasi bantuan hukum",
     imgTwo: personWorking,
-    imgTwoAlt: "Diskusi penanganan kasus hukum",
+    imgTwoAlt: "Diskusi penanganan kasus hukum"
   },
   {
     isRightSection: false,
@@ -58,7 +55,7 @@ const articles: Article[] = [
     imgAlt: "Konsultasi gratis dengan penasihat hukum",
     btnExists: true,
     btnTitle: "Ajukan Konsultasi",
-    btnURL: "https://lsc.bphn.go.id/konsultasi",
+    btnURL: "https://lsc.bphn.go.id/konsultasi"
   },
   {
     isRightSection: true,
@@ -69,7 +66,7 @@ const articles: Article[] = [
     imgOne: paralegal1,
     imgOneAlt: "Pelatihan untuk paralegal",
     imgTwo: paralegal2,
-    imgTwoAlt: "Kegiatan workshop paralegal",
+    imgTwoAlt: "Kegiatan workshop paralegal"
   },
   {
     isRightSection: false,
@@ -77,7 +74,7 @@ const articles: Article[] = [
     subTitle:
       "Kami memberikan penghargaan kepada individu atau organisasi yang berkontribusi besar dalam memperluas akses keadilan dan membangun perdamaian di masyarakat. Peacemaker Justice Award menjadi bentuk apresiasi atas dedikasi luar biasa mereka.",
     img: usingTools,
-    imgAlt: "Upacara penghargaan pejuang akses keadilan",
+    imgAlt: "Upacara penghargaan pejuang akses keadilan"
   },
   {
     isRightSection: true,
@@ -91,7 +88,7 @@ const articles: Article[] = [
     imgTwoAlt: "Warga mendapatkan layanan Posbakum",
     btnExists: true,
     btnTitle: "Temukan Posbakum Terdekat",
-    btnURL: "#",
+    btnURL: "#"
   },
   {
     isRightSection: true,
@@ -102,8 +99,8 @@ const articles: Article[] = [
     imgOne: penyuluh1,
     imgOneAlt: "Peluhmi",
     imgTwo: penyuluh2,
-    imgTwoAlt: "Sesi pelatihan penyuluh hukum",
-  },
+    imgTwoAlt: "Sesi pelatihan penyuluh hukum"
+  }
 ];
 
 
@@ -111,30 +108,30 @@ const pageTitle: string = `Layanan | ${SITE.title}`;
 const metaDescription =
   "Kami hadir untuk memperluas akses keadilan melalui layanan bantuan hukum gratis, konsultasi hukum, pelatihan paralegal, Posbakum, penghargaan Peacemaker Justice Award, dan pembinaan penyuluh hukum di seluruh Indonesia.";
 
-const ogTitle = "Akses Keadilan untuk Semua | Layanan Hukum BPHN";
-
+const ogTitle = "Akses Keadilan untuk Semua";
 ---
 
 <MainLayout
   title={pageTitle}
   customDescription={metaDescription}
   customOgTitle={ogTitle}
+
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://bantuanhukum.bphn.go.id/services",
-    url: "https://bphn.go.id/layanan-hukum",
-    name: "Layanan Hukum | BPHN",
+    "@id": `${SITE.url}/https://bphn.go.id/services`,
+    url: `${SITE.url}/https://bphn.go.id/services`,
+    name: "Layanan Pembudayaan Hukum",
     description:
       "Kami hadir untuk memperluas akses keadilan melalui layanan bantuan hukum gratis, konsultasi hukum, pelatihan paralegal, Posbakum, penghargaan Peacemaker Justice Award, dan pembinaan penyuluh hukum di seluruh Indonesia.",
     isPartOf: {
       "@type": "WebSite",
-      url: "https://bphn.go.id",
+      url: `${SITE.url}`,
       name: "Badan Pembinaan Hukum Nasional",
       description:
-        "Portal resmi Badan Pembinaan Hukum Nasional – Kementerian Hukum yang menyediakan informasi hukum, layanan bantuan hukum, dan pembinaan masyarakat sadar hukum.",
+        "Portal resmi Badan Pembinaan Hukum Nasional – Kementerian Hukum yang menyediakan informasi hukum, layanan bantuan hukum, dan pembinaan masyarakat sadar hukum."
     },
-    inLanguage: "id-ID",
+    inLanguage: "id-ID"
   }}
 >
   {/* MainSection: pengantar layanan hukum BPHN */}

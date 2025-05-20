@@ -7,42 +7,46 @@ import {
   FileIcon as FileList,
   Database,
 } from "lucide-react";
+import PjaIcon from "@components/react/pja.tsx";
+import LSC from "@components/react/lsc.tsx";
+import Posbakum from "@components/react/posbakum.tsx";
+import Apregal from "@components/react/apregal.tsx";
 
 const services = [
   {
     title: "Ruang Paralegal",
     description: "Akses informasi dan sumber daya untuk paralegal",
-    icon: <Search className="h-12 w-12 text-slate-800" />,
+    icon: <Apregal className="h-20 w-20" width={100} height={100} />,
     href: "https://www.ruangparalegal.com/",
   },
   {
     title: "Pos Bantuan Hukum",
-    description: "Layanan bantuan hukum untuk masyarakat",
-    icon: <FileText className="h-12 w-12 text-slate-800" />,
+    description: "Layanan bantuan hukum untuk masyarakat - di desa",
+    icon: <Posbakum className="h-20 w-20" width={100} height={100} />,
     href: "https://www.ruangparalegal.com/",
   },
   {
     title: "Peacemaker Justice Award",
-    description: "Penghargaan untuk paralegal berprestasi",
-    icon: <Heart className="h-12 w-12 text-slate-800" />,
+    description: "Penghargaan untuk kepada desa/lurah berprestasi",
+    icon: <PjaIcon className="h-12 w-12" width={80} height={80} />,
     href: "https://pja.bphn.go.id",
   },
   {
     title: "SIDBANKUM",
     description: "Sistem Informasi Database Bantuan Hukum",
-    icon: <Database className="h-12 w-12 text-slate-800" />,
+    icon: <Database className="h-12 w-12 text-[#152553]" />,
     href: "https://sidbankum.bphn.go.id/",
   },
   {
     title: "LSCC",
-    description: "Legal Smart Community Channel",
-    icon: <FileList className="h-12 w-12 text-slate-800" />,
-    href: "https://lsc.bphn.go.id/",
+    description: "Konsultasi Hukum Online",
+    icon: <LSC className="h-12 w-12" />,
+    href: "https://lsc.bphn.go.id/konsultasi",
   },
   {
     title: "Penyuluh Hukum",
     description: "Pembinaan dan pengembangan Penyuluh Hukum di Indonesia",
-    icon: <MessageCircle className="h-12 w-12 text-slate-800" />,
+    icon: <MessageCircle className="h-12 w-12 text-[#152553]" />,
     href: "https://fungsional.bphn.go.id",
   },
 ];

@@ -66,7 +66,7 @@ const services = [
     icon:<LazyLoadImage
       alt="Icon Ruang Paralegal"
       src={lsc}
-      className="h-20 w-20"
+      className="h-20 w-20 dark:invert-100"
       placeholderSrc={lsc}
     />,
     href: "https://lsc.bphn.go.id/konsultasi"
@@ -110,7 +110,7 @@ function ServiceCard({ href, icon, title, description }: ServiceCardProps) {
     <a
       href={href}
       target={"_blank"}
-      className="flex flex-col items-center justify-center rounded-3xl border-2 border-[#152553] dark:border-white/60 hover:border-white p-3 transition-all duration-300 hover:shadow-md sm:p-6"
+      className="flex flex-col items-center justify-center rounded-3xl border border-[#152553] dark:border-white/80 dark:bg-white/40 dark:backdrop-blur-2xl hover:border-white dark:hover:border-[#FFCB05]/30 p-3 transition-all duration-300 hover:shadow-md sm:p-6"
     >
       <div className="mb-4">{icon}</div>
       <h3 className="text-center text-sm font-bold tracking-wide text-slate-800 uppercase">

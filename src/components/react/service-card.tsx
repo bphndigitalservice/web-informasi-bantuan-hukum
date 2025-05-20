@@ -5,46 +5,78 @@ import {
   MessageCircle,
   Heart,
   FileIcon as FileList,
-  Database,
+  Database
 } from "lucide-react";
+
+import lsc from "./LSC.png?url";
+import posbakum from "./POSBANKUM.png?url";
+import apregal from "./APREGAL.png?url";
+import pja from "./PJA.png?url";
+import pkg from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
+const { LazyLoadImage } = pkg;
 
 const services = [
   {
     title: "Ruang Paralegal",
     description: "Akses informasi dan sumber daya untuk paralegal",
-    icon: <Search className="h-12 w-12 text-slate-800" />,
-    href: "https://www.ruangparalegal.com/",
+    icon: <LazyLoadImage
+      alt="Icon Ruang Paralegal"
+      src={apregal}
+      //effect="blur"
+      className="h-20 w-20"
+      placeholderSrc={apregal}
+    />,
+    href: "https://www.ruangparalegal.com/"
   },
   {
     title: "Pos Bantuan Hukum",
-    description: "Layanan bantuan hukum untuk masyarakat",
-    icon: <FileText className="h-12 w-12 text-slate-800" />,
-    href: "https://www.ruangparalegal.com/",
+    description: "Layanan bantuan hukum untuk masyarakat - di desa",
+    icon: <LazyLoadImage
+      alt="Icon Ruang Paralegal"
+      src={posbakum}
+      //effect="blur"
+      className="h-20 w-20"
+      placeholderSrc={posbakum}
+    />,
+    href: "https://www.ruangparalegal.com/"
   },
   {
     title: "Peacemaker Justice Award",
-    description: "Penghargaan untuk paralegal berprestasi",
-    icon: <Heart className="h-12 w-12 text-slate-800" />,
-    href: "https://pja.bphn.go.id",
+    description: "Penghargaan untuk kepada desa/lurah berprestasi",
+    icon:<LazyLoadImage
+      alt="Icon Ruang Paralegal"
+      src={pja}
+      loading={"lazy"}
+      className="h-20 w-20"
+      placeholderSrc={pja}
+    />,
+    href: "https://pja.bphn.go.id"
   },
   {
     title: "SIDBANKUM",
     description: "Sistem Informasi Database Bantuan Hukum",
-    icon: <Database className="h-12 w-12 text-slate-800" />,
-    href: "https://sidbankum.bphn.go.id/",
+    icon: <Database className="h-12 w-12 text-[#152553]" />,
+    href: "https://sidbankum.bphn.go.id/"
   },
   {
     title: "LSCC",
-    description: "Legal Smart Community Channel",
-    icon: <FileList className="h-12 w-12 text-slate-800" />,
-    href: "https://lsc.bphn.go.id/",
+    description: "Konsultasi Hukum Online",
+    icon:<LazyLoadImage
+      alt="Icon Ruang Paralegal"
+      src={lsc}
+      className="h-20 w-20"
+      placeholderSrc={lsc}
+    />,
+    href: "https://lsc.bphn.go.id/konsultasi"
   },
   {
     title: "Penyuluh Hukum",
     description: "Pembinaan dan pengembangan Penyuluh Hukum di Indonesia",
-    icon: <MessageCircle className="h-12 w-12 text-slate-800" />,
-    href: "https://fungsional.bphn.go.id",
-  },
+    icon: <MessageCircle className="h-12 w-12 text-[#152553]" />,
+    href: "https://fungsional.bphn.go.id"
+  }
 ];
 
 interface ServiceCardProps {

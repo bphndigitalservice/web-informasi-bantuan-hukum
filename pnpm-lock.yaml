@@ -80,6 +80,9 @@ importers:
       react-dom:
         specifier: ^19.1.0
         version: 19.1.0(react@19.1.0)
+      react-lazy-load-image-component:
+        specifier: ^1.6.3
+        version: 1.6.3(react@19.1.0)
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
@@ -99,6 +102,9 @@ importers:
       '@tailwindcss/forms':
         specifier: ^0.5.10
         version: 0.5.10(tailwindcss@4.1.7)
+      '@types/react-lazy-load-image-component':
+        specifier: ^1.6.4
+        version: 1.6.4
       astro-vtbot:
         specifier: ^2.1.2
         version: 2.1.3
@@ -1048,6 +1054,9 @@ packages:
     peerDependencies:
       '@types/react': ^19.0.0
 
+  '@types/react-lazy-load-image-component@1.6.4':
+    resolution: {integrity: sha512-8pFPeDPF4yVG4lU1/ixZidJEEDZmEOYOTYDvmIu2IAabyuv97Q7n/93nMCocHvQ7vD1czKGiW+op55D9m3MkdA==}
+
   '@types/react@19.1.4':
     resolution: {integrity: sha512-EB1yiiYdvySuIITtD5lhW4yPyJ31RkJkkDw794LaQYrxCSaQV/47y5o1FMC4zF9ZyjUjzJMZwbovEnT5yHTW6g==}
 
@@ -1891,6 +1900,12 @@ packages:
     resolution: {integrity: sha512-xi6IyHML+c9+Q3W0S4fCQJOym42pyurFiJUHEcEyHS0CeKzia4yZDEsLlqOFykxOdHpNy0NmvVO31vcSqAxJCg==}
     engines: {node: '>= 12.0.0'}
 
+  lodash.debounce@4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+
+  lodash.throttle@4.1.1:
+    resolution: {integrity: sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==}
+
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
@@ -2383,6 +2398,11 @@ packages:
     resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
     peerDependencies:
       react: ^19.1.0
+
+  react-lazy-load-image-component@1.6.3:
+    resolution: {integrity: sha512-kdQYUDbuISF3T9El0sBLNoWrmPohqlytcG4ognLtHYjY8bZAsJ0/Ez+VaV+0QlVyUY3K6dDXkuQAz3GpvdjBkw==}
+    peerDependencies:
+      react: ^15.x.x || ^16.x.x || ^17.x.x || ^18.x.x || ^19.x.x
 
   react-refresh@0.17.0:
     resolution: {integrity: sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==}
@@ -4031,6 +4051,11 @@ snapshots:
     dependencies:
       '@types/react': 19.1.4
 
+  '@types/react-lazy-load-image-component@1.6.4':
+    dependencies:
+      '@types/react': 19.1.4
+      csstype: 3.1.3
+
   '@types/react@19.1.4':
     dependencies:
       csstype: 3.1.3
@@ -5063,6 +5088,10 @@ snapshots:
       lightningcss-win32-arm64-msvc: 1.30.1
       lightningcss-win32-x64-msvc: 1.30.1
 
+  lodash.debounce@4.0.8: {}
+
+  lodash.throttle@4.1.1: {}
+
   lodash@4.17.21: {}
 
   longest-streak@3.1.0: {}
@@ -5775,6 +5804,12 @@ snapshots:
     dependencies:
       react: 19.1.0
       scheduler: 0.26.0
+
+  react-lazy-load-image-component@1.6.3(react@19.1.0):
+    dependencies:
+      lodash.debounce: 4.0.8
+      lodash.throttle: 4.1.1
+      react: 19.1.0
 
   react-refresh@0.17.0: {}
 

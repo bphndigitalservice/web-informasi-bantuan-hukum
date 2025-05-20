@@ -57,7 +57,7 @@ interface Props {
     <!-- Read More button which is a link to the blog post detailed page -->
     <div class="mt-5">
       <PrimaryCTA
-        url={recentBlogLocale && recentBlogLocale !== "en" ? `/${recentBlogLocale}/blog/${blogEntry.id.replace(/^fr\//, '')}/` : `/blog/${blogEntry.id.replace(/^en\//, '')}/`}
+        url={recentBlogLocale && recentBlogLocale !== "id" ? `/${recentBlogLocale}/blog/${blogEntry.id}/` : `/blog/${blogEntry.id.replace(/^id\//, '')}/`}
         title="Read More"
         data-astro-prefetch
       />

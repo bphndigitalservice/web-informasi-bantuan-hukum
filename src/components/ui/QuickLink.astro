@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  image: string;
+  alt: string;
+  href: string;
+  title: string;
+  description: string;
+}
+
+const { image, alt, href, title, description } = Astro.props;
+---
+<a
+  href={href}
+  target="_blank"
+  class="flex flex-col items-center justify-center rounded-3xl border-2 border-[#152553] dark:border-white/60 hover:border-white p-3 transition-all duration-300 hover:shadow-md sm:p-6"
+>
+  <div class="mb-4">
+    <Image
+      class="w-full rounded-xl object-cover"
+      src={image}
+      alt={alt}
+      inferSize
+      loading="lazy"
+      format="avif"
+    />
+  </div>
+  <h3 class="text-center text-sm font-bold tracking-wide text-slate-800 uppercase">
+    {title}
+  </h3>
+  <p class="mt-2 text-center text-xs text-slate-600 md:block">
+    {description}
+  </p>
+</a>

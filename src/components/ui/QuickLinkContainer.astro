@@ -1,0 +1,70 @@
+---
+import QuickLink from "./QuickLink.astro";
+
+interface QuickLinkItem {
+  title: string;
+  href: string;
+  icon: string;
+  description: string;
+}
+
+interface Props {
+  links: QuickLinkItem[];
+}
+
+const {
+  links = [
+    {
+      title: "PartisipasiKu",
+      href: "https://partisipasiku.bphn.go.id",
+      icon: "/icons/partisipasiku.svg",
+      description: "Portal Partisipasi Publik dalam Pembentukan Peraturan"
+    },
+    {
+      title: "JDIHN",
+      href: "https://jdihn.go.id",
+      icon: "/icons/jdihn.svg",
+      description: "Jaringan Dokumentasi dan Informasi Hukum Nasional"
+    },
+    {
+      title: "BPHN",
+      href: "https://bphn.go.id",
+      icon: "/icons/bphn.svg",
+      description: "Badan Pembinaan Hukum Nasional"
+    },
+    {
+      title: "Kemenkumham",
+      href: "https://kemenkumham.go.id",
+      icon: "/icons/kemenkumham.svg",
+      description: "Kementerian Hukum dan HAM"
+    },
+    {
+      title: "AHU",
+      href: "https://ahu.go.id",
+      icon: "/icons/ahu.svg",
+      description: "Administrasi Hukum Umum"
+    },
+    {
+      title: "DJKI",
+      href: "https://dgip.go.id",
+      icon: "/icons/djki.svg",
+      description: "Direktorat Jenderal Kekayaan Intelektual"
+    }
+  ]
+} = Astro.props;
+---
+
+<div class="flex flex-col items-center justify-center px-4 2xl:max-w-full my-5">
+  <h3 class="mb-5 text-2xl font-bold">Tautan Cepat.</h3>
+  <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
+    {
+      links.map((link) => (
+        <QuickLink
+          href={link.href}
+          title={link.title}
+          description={link.description}
+          alt={link.description} image={link.icon} />
+      ))
+    }
+  </div>
+</div>

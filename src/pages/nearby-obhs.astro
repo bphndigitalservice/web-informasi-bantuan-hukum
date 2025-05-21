@@ -1,0 +1,52 @@
+---
+// Import necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import MainSection from "@components/ui/blocks/MainSection.astro";
+import LeftSection from "@components/ui/blocks/LeftSection.astro";
+import RightSection from "@components/ui/blocks/RightSection.astro";
+
+import { SITE } from "@data/constants";
+import Map from "@/components/react/map";
+
+
+const pageTitle: string = `OBH Terdekat | ${SITE.title}`;
+const metaDescription =
+  "Kami hadir untuk memperluas akses keadilan melalui layanan bantuan hukum gratis, konsultasi hukum, pelatihan paralegal, Posbakum, penghargaan Peacemaker Justice Award, dan pembinaan penyuluh hukum di seluruh Indonesia.";
+
+const ogTitle = "Akses Keadilan untuk Semua";
+---
+
+<MainLayout
+  title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE.url}/https://bphn.go.id/services`,
+    url: `${SITE.url}/https://bphn.go.id/services`,
+    name: "Layanan Pembudayaan Hukum",
+    description:
+      "Kami hadir untuk memperluas akses keadilan melalui layanan bantuan hukum gratis, konsultasi hukum, pelatihan paralegal, Posbakum, penghargaan Peacemaker Justice Award, dan pembinaan penyuluh hukum di seluruh Indonesia.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: `${SITE.url}`,
+      name: "Badan Pembinaan Hukum Nasional",
+      description:
+        "Portal resmi Badan Pembinaan Hukum Nasional – Kementerian Hukum yang menyediakan informasi hukum, layanan bantuan hukum, dan pembinaan masyarakat sadar hukum."
+    },
+    inLanguage: "id-ID"
+  }}
+>
+  {/* MainSection: pengantar layanan hukum BPHN */}
+  <MainSection
+    title="Akses Keadilan untuk Semua"
+    subTitle="BPHN berkomitmen untuk memperluas jangkauan layanan hukum kepada masyarakat melalui bantuan hukum gratis, konsultasi hukum terbuka, pelatihan dan peningkatan kompetensi paralegal, layanan Pos Bantuan Hukum (Posbakum), serta pembinaan Jabatan Fungsional Penyuluh Hukum. Kami juga mengapresiasi kontribusi perdamaian melalui Peacemaker Justice Award."
+    btnExists={true}
+    btnTitle="Jelajahi Layanan Kami"
+    btnURL="#layanan"
+  />
+
+  <Map client:only="react" />
+</MainLayout>

@@ -3,6 +3,7 @@ const navBarLinks = [
   { name: "Beranda", url: "/" },
   { name: "Layanan", url: "/services" },
   { name: "Informasi", url: "/blog" },
+  { name: "OBH Terdekat", url: "/nearby-obhs" },
   //{ name: "Kontak", url: "/contact" },
 ];
 // An array of links for footer

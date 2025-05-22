@@ -8,10 +8,10 @@ import {
   Database
 } from "lucide-react";
 
-import lsc from "./LSC.png?url";
-import posbakum from "./POSBANKUM.png?url";
-import apregal from "./APREGAL.png?url";
-import pja from "./PJA.png?url";
+import lsc from "./icon/LSC.png?url";
+import posbakum from "./icon/POSBANKUM.png?url";
+import apregal from "./icon/APREGAL.png?url";
+import pja from "./icon/PJA.png?url";
 import pkg from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 

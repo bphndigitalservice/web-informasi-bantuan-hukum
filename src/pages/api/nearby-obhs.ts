@@ -9,8 +9,6 @@ export const GET: APIRoute = async ({ url, params,request,cookies, redirect }) =
     const lon = parseFloat(url.searchParams.get("lon") || "");
     const radius = parseInt(url.searchParams.get("radius") || "10000");
 
-    console.log(request)
-
     if (isNaN(lat) || isNaN(lon) || isNaN(radius)) {
       return new Response(
         JSON.stringify({

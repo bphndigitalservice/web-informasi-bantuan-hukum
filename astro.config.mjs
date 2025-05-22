@@ -8,24 +8,30 @@ import mdx from "@astrojs/mdx";
 
 import react from "@astrojs/react";
 
+import vercel from "@astrojs/vercel";
+
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
   site: "https://bantuanhukum.bphn.go.id",
+
   image: {
     domains: ["images.unsplash.com"],
   },
-   i18n: {
-     defaultLocale: "id",
-     locales: ["id", "en"],
-     fallback: {
-       en: "id",
-     },
-     routing: {
-       prefixDefaultLocale: false,
-     },
-   },
+
+  i18n: {
+    defaultLocale: "id",
+    locales: ["id", "en"],
+    fallback: {
+      en: "id",
+    },
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   prefetch: true,
+
   integrations: [sitemap({
     i18n: {
       defaultLocale: "id", // All urls that don't contain `en` after `https://screwfast.uk/` will be treated as default locale, i.e. `en`
@@ -35,10 +41,14 @@ export default defineConfig({
       },
     },
   }), react()],
+
   experimental: {
     clientPrerender: true,
   },
+
   vite: {
     plugins: [tailwindcss()],
   },
+
+  adapter: vercel(),
 });

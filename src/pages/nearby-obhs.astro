@@ -2,18 +2,16 @@
 // Import necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
 import MainSection from "@components/ui/blocks/MainSection.astro";
-import LeftSection from "@components/ui/blocks/LeftSection.astro";
-import RightSection from "@components/ui/blocks/RightSection.astro";
 
 import { SITE } from "@data/constants";
-import Map from "@/components/react/map";
+import LegalAidOrganizationMap from "@/components/react/map/legal-aid-organization-map";
 
 
-const pageTitle: string = `OBH Terdekat | ${SITE.title}`;
+const pageTitle: string = `Cari OBH Terdekat | ${SITE.title}`;
 const metaDescription =
-  "Kami hadir untuk memperluas akses keadilan melalui layanan bantuan hukum gratis, konsultasi hukum, pelatihan paralegal, Posbakum, penghargaan Peacemaker Justice Award, dan pembinaan penyuluh hukum di seluruh Indonesia.";
+  "Temukan Organisasi Bantuan Hukum (OBH) terdekat di wilayah Anda untuk mendapatkan layanan bantuan hukum gratis, konsultasi hukum, dan pendampingan hukum yang terpercaya.";
 
-const ogTitle = "Akses Keadilan untuk Semua";
+const ogTitle = "Temukan OBH Terdekat dan Dapatkan Bantuan Hukum Sekarang";;
 ---
 
 <MainLayout
@@ -24,11 +22,11 @@ const ogTitle = "Akses Keadilan untuk Semua";
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `${SITE.url}/https://bphn.go.id/services`,
-    url: `${SITE.url}/https://bphn.go.id/services`,
-    name: "Layanan Pembudayaan Hukum",
+    "@id": `${SITE.url}/obh-terdekat`,
+    url: `${SITE.url}/obh-terdekat`,
+    name: "Peta OBH Terdekat",
     description:
-      "Kami hadir untuk memperluas akses keadilan melalui layanan bantuan hukum gratis, konsultasi hukum, pelatihan paralegal, Posbakum, penghargaan Peacemaker Justice Award, dan pembinaan penyuluh hukum di seluruh Indonesia.",
+      "Platform pencarian lokasi Organisasi Bantuan Hukum (OBH) terdekat yang menyediakan layanan bantuan hukum gratis, konsultasi, dan pendampingan hukum di seluruh Indonesia.",
     isPartOf: {
       "@type": "WebSite",
       url: `${SITE.url}`,
@@ -41,12 +39,10 @@ const ogTitle = "Akses Keadilan untuk Semua";
 >
   {/* MainSection: pengantar layanan hukum BPHN */}
   <MainSection
-    title="Akses Keadilan untuk Semua"
-    subTitle="BPHN berkomitmen untuk memperluas jangkauan layanan hukum kepada masyarakat melalui bantuan hukum gratis, konsultasi hukum terbuka, pelatihan dan peningkatan kompetensi paralegal, layanan Pos Bantuan Hukum (Posbakum), serta pembinaan Jabatan Fungsional Penyuluh Hukum. Kami juga mengapresiasi kontribusi perdamaian melalui Peacemaker Justice Award."
-    btnExists={true}
-    btnTitle="Jelajahi Layanan Kami"
-    btnURL="#layanan"
+    title="Butuh Bantuan Hukum? Lihat OBH Terdekat!"
+    subTitle="Tidak perlu bingung cari bantuan hukum—OBH (Organisasi Bantuan Hukum) terdekat bisa bantu kamu secara gratis! Dari konsultasi hukum sampai pendampingan di pengadilan, semua bisa kamu akses lewat peta ini. Yuk, klik titik terdekat dan temui OBH yang siap bantu kamu."
+    btnExists={false}
   />
 
-  <Map client:only="react" />
+  <LegalAidOrganizationMap client:only="react" />
 </MainLayout>

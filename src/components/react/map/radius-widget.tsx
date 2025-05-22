@@ -2,68 +2,94 @@ import "leaflet-geometryutil";
 import { Marker, useMap, Popup, Circle } from "react-leaflet";
 import { useEffect, useRef, useState } from "react";
 import L, { LatLng, Marker as LeafletMarker } from "leaflet";
-type RadiusMarkerProps = {
+import sizer from "@components/react/map/icons/radius-sizer.png?url";
+import pin from "@components/react/map/icons/map-pin.png?url";
+
+type RadiusWidgetProps = {
   center: LatLng;
   radius: number;
   draggable?: boolean;
-  onChange?: (radius: number) => void;
+  onRadiusChange?: (radius: number) => void;
+  onCenterChange?: (center: LatLng) => void;
 };
-export function RadiusMarker({
+
+const sizerIcon = new L.Icon({
+  iconUrl: sizer,
+  iconSize: [32, 32],
+  iconAnchor: [16, 16],
+  popupAnchor: [0, -16],
+});
+
+const centerIcon = new L.Icon({
+  iconUrl: pin,
+  iconSize: [32, 32],
+  iconAnchor: [16, 16],
+  popupAnchor: [0, -16],
+});
+
+export function RadiusWidget({
   center: initialCenter,
   radius: initialRadius,
   draggable = true,
-  onChange,
-}: RadiusMarkerProps) {
+  onRadiusChange,
+  onCenterChange,
+}: RadiusWidgetProps) {
   const [centerPosition, setCenterPosition] = useState<LatLng>(initialCenter);
   const [radius, setRadius] = useState<number>(initialRadius);
   // Default initial angle (can be any value, 120 is just a starting point)
   const angleRef = useRef<number>(120);
   const [radiusSizerMarkerPosition, setRadiusSizerMarkerPosition] =
     useState<LatLng>(() =>
-      L.GeometryUtil.destination(centerPosition, angleRef.current, initialRadius),
+      L.GeometryUtil.destination(
+        centerPosition,
+        angleRef.current,
+        initialRadius,
+      ),
     );
   const centerMarkerRef = useRef<LeafletMarker | null>(null);
   const sizerMarkerRef = useRef<LeafletMarker | null>(null);
   const map = useMap();
   const isDraggingCenter = useRef(false);
-  // Update position and radius when props change
-  useEffect(() => {
-    if (!isDraggingCenter.current) {
-      setCenterPosition(initialCenter);
-      setRadius(initialRadius);
-      setRadiusSizerMarkerPosition(
-        L.GeometryUtil.destination(initialCenter, angleRef.current, initialRadius),
-      );
-    }
-  }, [initialCenter, initialRadius]);
-  // Calculate angle between two points in degrees (0-360)
-  const calculateAngle = (center: LatLng, point: LatLng): number => {
-    // Convert to simple x,y for angle calculation
-    const x = point.lng - center.lng;
-    const y = point.lat - center.lat;
-    // Calculate angle in radians and convert to degrees
-    let angle = Math.atan2(y, x) * (180 / Math.PI);
-    // Normalize to 0-360 degrees (Leaflet azimuth is 0 at east, clockwise)
-    angle = (angle + 90) % 360;
-    if (angle < 0) angle += 360;
-    return angle;
-  };
+
   // Update sizer marker position with current angle and radius
   const updateSizerPosition = (center: LatLng, currentRadius: number) => {
     return L.GeometryUtil.destination(center, angleRef.current, currentRadius);
   };
+
+  // Update position and radius when props change
+  useEffect(() => {
+    map.setView(initialCenter, map.getZoom());
+    if (!isDraggingCenter.current) {
+      setCenterPosition(initialCenter);
+      setRadius(initialRadius);
+      setRadiusSizerMarkerPosition(
+        L.GeometryUtil.destination(
+          initialCenter,
+          angleRef.current,
+          initialRadius,
+        ),
+      );
+    }
+  }, [initialCenter, initialRadius]);
+
+
+
   return (
     <>
       <Circle
         center={centerPosition}
         radius={radius}
-        color="red"
-        fillOpacity={0.5}
+        color={"#7795ff"}
+        fillColor={"#7795ff"}
+        className={
+          "fill-opacity-50 animate-[gradientFill_3s_ease-in-out_infinite] bg-gradient-to-tr from-[#7795ff] via-[#3e61f5] to-[#7795ff] bg-[length:200%_200%] stroke-[#3e61f5]"
+        }
       ></Circle>
       <Marker
         ref={(ref) => {
           if (ref) centerMarkerRef.current = ref;
         }}
+        icon={centerIcon}
         position={centerPosition}
         draggable={draggable}
         eventHandlers={{
@@ -84,13 +110,15 @@ export function RadiusMarker({
           },
           dragend: (e) => {
             isDraggingCenter.current = false;
+
             // Final update after drag ends
             const finalCenter = e.target.getLatLng();
             setCenterPosition(finalCenter);
             const finalSizerPosition = updateSizerPosition(finalCenter, radius);
             setRadiusSizerMarkerPosition(finalSizerPosition);
-            if (onChange) {
-              onChange(radius);
+
+            if (onCenterChange) {
+              onCenterChange(finalCenter);
             }
           },
         }}
@@ -101,6 +129,7 @@ export function RadiusMarker({
         </Popup>
       </Marker>
       <Marker
+        icon={sizerIcon}
         draggable={true}
         position={radiusSizerMarkerPosition}
         ref={(ref) => {
@@ -116,8 +145,8 @@ export function RadiusMarker({
             angleRef.current = calculateAngle(centerPosition, newLatLng);
           },
           dragend: (e) => {
-            if (onChange) {
-              onChange(radius);
+            if (onRadiusChange) {
+              onRadiusChange(radius);
             }
           },
         }}
@@ -129,3 +158,18 @@ export function RadiusMarker({
     </>
   );
 }
+
+// Calculate angle between two points in degrees (0-360)
+const calculateAngle = (center: LatLng, point: LatLng): number => {
+  // Convert to simple x,y for angle calculation
+  const x = point.lng - center.lng;
+  const y = point.lat - center.lat;
+  // Calculate angle in radians and convert to degrees
+  let angle = Math.atan2(y, x) * (180 / Math.PI);
+  // Normalize to 0-360 degrees (Leaflet azimuth is 0 at east, clockwise)
+  angle = (angle + 90) % 360;
+  if (angle < 0) angle += 360;
+  return angle;
+};
+
+

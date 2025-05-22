@@ -2,6 +2,7 @@
 // Importing necessary components
 import Meta from "@components/Meta.astro";
 import Navbar from "@components/sections/navbar&footer/Navbar.astro";
+import Analytics from '@vercel/analytics/astro'
 import FooterSection from "@components/sections/navbar&footer/FooterSection.astro";
 import { SITE } from "@data/constants";
 import "@styles/global.css";
@@ -73,6 +74,7 @@ interface Props {
       </main>
     </div>
     <FooterSection />
+    <Analytics/>
     <script>
       // https://preline.co
       import "preline/preline.js";

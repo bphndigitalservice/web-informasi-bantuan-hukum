@@ -8,6 +8,8 @@ import react from "@astrojs/react";
 
 import vercel from "@astrojs/vercel";
 
+import partytown from "@astrojs/partytown";
+
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
@@ -38,7 +40,7 @@ export default defineConfig({
         id: "id",
       },
     },
-  }), react()],
+  }), react(), partytown()],
 
   experimental: {
     clientPrerender: true,

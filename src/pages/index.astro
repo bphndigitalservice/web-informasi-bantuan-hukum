@@ -5,6 +5,7 @@ import FAQ from "@components/sections/misc/FAQ.astro";
 import heroImage from "@images/masthead.png";
 import faqs from "@data/faqs.json";
 import Services from "../components/react/service/service-card";
+import TestimonialsSection from "../components/sections/testimonials/TestimonialsSection.astro";
 ---
 
 <MainLayout >
@@ -66,7 +67,42 @@ import Services from "../components/react/service/service-card";
       },
     ]}
   />-->
-
+  <TestimonialsSection
+    title="Keadilan Tanpa Batas, Layanan Hukum untuk Semua"
+    subTitle="Dari desa hingga kota, kami hadir untuk memberikan penjelasan hukum yang jelas dan mudah diakses oleh semua lapisan masyarakat."
+    ;
+    testimonials={[
+      {
+        content:
+          "Terima kasih atas terbentuknya Posbankumdes di daerah Tabanan sehingga bisa membantu masyarakat untuk memberikan penjelasan dalam hal permasalahan hukum",
+        author: "I Nengah Wayan",
+        role: "Penerima Layanan Posbankum Desa Gubug Kabupaten Tabanan",
+        avatarSrc:
+          "https://res.cloudinary.com/dd4anaygs/image/upload/c_pad,w_100,h_100/v1747955441/Screenshot_2025-05-23_at_05_Fotor_js52oy.png",
+      },
+    ]}
+    statistics={[
+      {
+        count: "777",
+        description:
+          "Organisasi Bantuan Hukum Terakreditasi",
+      },
+      {
+        count: "1000++",
+        description:
+          "Pos Bantuan Hukum Tersebar diseluruh Indonesia",
+      },
+      {
+        count: "4333++",
+        description:
+          "Konsultasi Hukum Online",
+      },
+      /*{
+        count: "2x",
+        description: "quicker assembly using innovative fastening solutions",
+      },*/
+    ]}
+  />
   <FAQ title="Frequently<br />asked questions" faqs={faqs} />
 
 </MainLayout>

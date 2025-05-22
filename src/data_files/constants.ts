@@ -1,11 +1,11 @@
-import ogImageSrc from "@images/social.png";
+import ogImageSrc from "@images/og.png";
 
 
 
 export const SITE = {
   title: "Portal Informasi Bantuan Hukum",
   tagline: "Dekatkan Hukum, Kuatkan Masyarakat",
-  description: "Portal ini merupakan pusat informasi, edukasi, dan kolaborasi dalam rangka memperluas akses bantuan hukum dan meningkatkan kesadaran hukum masyarakat. Temukan informasi tentang paralegal, pos bantuan hukum desa, penyuluhan hukum, serta komunitas cerdas hukum di sini.",
+  description: "Pusat informasi, edukasi, dan kolaborasi dalam rangka memperluas akses bantuan hukum dan meningkatkan kesadaran hukum masyarakat. Temukan informasi tentang paralegal, pos bantuan hukum desa, penyuluhan hukum, serta komunitas cerdas hukum di sini.",
   description_short: "Pusat informasi dan edukasi untuk memperluas akses bantuan hukum dan meningkatkan kesadaran hukum masyarakat.",
   url: "https://bantuanhukum.bphn.go.id",
   author: "Badan Pembinaan Hukum Nasional",

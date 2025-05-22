@@ -13,7 +13,16 @@ import {
 } from "@/components/ui/card.tsx";
 import { Phone, Mail, Globe, MapPin, Clock, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button.tsx";
-import type { OBH } from "@/lib/types.ts"; // Import the OBH type
+import type { OBH } from "@/lib/types.ts";
+import obh from "@components/react/map/icons/object-marker.png?url";
+
+
+const obhIcon = new L.Icon({
+  iconUrl: obh,
+  iconSize: [32, 32],
+  iconAnchor: [16, 16],
+  popupAnchor: [0, -16],
+});
 
 export default function LegalAidOrganizationMap() {
   const [position, setPosition] = useState<L.LatLng>(
@@ -102,8 +111,8 @@ export default function LegalAidOrganizationMap() {
       <MapContainer
         className={"h-[80vh] w-full rounded-2xl border border-gray-800"}
         center={position}
-        zoom={15}
-        scrollWheelZoom={false}
+        zoom={14}
+        scrollWheelZoom={true}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -120,6 +129,7 @@ export default function LegalAidOrganizationMap() {
         {nearbyOBHs.map((obh, index) => (
           <Marker
             key={index}
+            icon={obhIcon}
             position={[obh.latitude, obh.longitude]}
           >
             <Popup>

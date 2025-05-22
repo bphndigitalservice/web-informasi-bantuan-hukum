@@ -5,6 +5,7 @@ import L, { LatLng, Marker as LeafletMarker } from "leaflet";
 import sizer from "@components/react/map/icons/radius-sizer.png?url";
 import pin from "@components/react/map/icons/map-pin.png?url";
 
+
 type RadiusWidgetProps = {
   center: LatLng;
   radius: number;
@@ -19,6 +20,7 @@ const sizerIcon = new L.Icon({
   iconAnchor: [16, 16],
   popupAnchor: [0, -16],
 });
+
 
 const centerIcon = new L.Icon({
   iconUrl: pin,

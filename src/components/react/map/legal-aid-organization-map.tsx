@@ -1,5 +1,4 @@
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 import { RadiusWidget } from "./radius-widget.tsx";
 import L from "leaflet";
 import { useState, useEffect, useCallback } from "react";

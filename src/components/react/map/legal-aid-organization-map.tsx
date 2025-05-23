@@ -148,7 +148,7 @@ const OBHPopup = ({ obh }: { obh: OBH }) => (
     </CardContent>
     <CardFooter>
       <Button onClick={() => getDirections(obh.obh_address)} className="w-full">
-        Get Directions
+        Petunjuk Arah
       </Button>
     </CardFooter>
   </Card>

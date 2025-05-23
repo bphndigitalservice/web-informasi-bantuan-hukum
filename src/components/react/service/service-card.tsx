@@ -30,7 +30,7 @@ const services = [
         placeholderSrc={apregal}
       />
     ),
-    href: "https://www.ruangparalegal.com/",
+    href: "https://apregal.bphn.go.id/",
   },
   {
     title: "Pos Bantuan Hukum",
@@ -44,7 +44,7 @@ const services = [
         placeholderSrc={posbakum}
       />
     ),
-    href: "https://www.ruangparalegal.com/",
+    href: "https://posbankum.bphn.go.id/",
   },
   {
     title: "Peacemaker Justice Award",

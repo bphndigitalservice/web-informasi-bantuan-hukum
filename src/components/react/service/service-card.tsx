@@ -69,7 +69,7 @@ const services = [
       <LazyLoadImage
         alt="Icon Ruang Paralegal"
         src={lsc}
-        className="h-20 w-20 dark:invert-100"
+        className="h-24 w-24 dark:invert-100"
         placeholderSrc={lsc}
       />
     ),
@@ -79,7 +79,7 @@ const services = [
     title: "Penyuluhan Hukum",
     description: "Aktivitas penyuluhan Hukum",
     icon: <MessageCircle className="h-12 w-12 text-[#152553]" />,
-    href: "https://fungsional.bphn.go.id",
+    href: "https://lsc.bphn.go.id/Kanalhukum",
   },
 ];
 

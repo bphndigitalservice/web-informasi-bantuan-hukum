@@ -11,7 +11,11 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import blueprints from "@images/blueprints-image.avif";
 import personWorking from "@images/person-working.avif";
 import beforeAfter from "@images/before-after.avif";
+import constructionWorkers from "@images/construction-workers.avif";
+import aerialView from "@images/aerial-view.avif";
 import usingTools from "@images/using-tools.avif";
+import progressBuilding from "@images/progress-building.avif";
+import underConstruction from "@images/under-construction.avif";
 
 interface Article {
   isRightSection: boolean;
@@ -32,70 +36,67 @@ interface Article {
 const articles: Article[] = [
   {
     isRightSection: true,
-    title: "Layanan Bantuan Hukum Gratis",
+    title: "Free Legal Aid Services",
     subTitle:
-      "Kami berkomitmen untuk menjamin akses keadilan bagi seluruh masyarakat. Layanan Bantuan Hukum Gratis kami memastikan warga tidak mampu tetap mendapatkan pendampingan hukum di pengadilan tanpa harus terbebani biaya.",
+      "We are committed to providing access to justice for all. Our Free Legal Aid services ensure that underprivileged citizens can obtain legal representation and protection of their rights in court, without financial barriers.",
     single: false,
     imgOne: blueprints,
-    imgOneAlt: "Ilustrasi konsultasi bantuan hukum",
+    imgOneAlt: "Legal aid consultation scene",
     imgTwo: personWorking,
-    imgTwoAlt: "Diskusi penanganan kasus hukum"
+    imgTwoAlt: "People discussing legal cases",
   },
   {
     isRightSection: false,
-    title: "Konsultasi Hukum Gratis",
+    title: "Free Legal Consultation",
     subTitle:
-      "Punya masalah hukum? Kami menyediakan layanan konsultasi hukum gratis untuk perkara perdata, pidana, keluarga, hingga tata usaha negara. Konsultasikan persoalan Anda dengan para penyuluh hukum kami.",
+      "Need legal advice? Our team offers free legal consultations on civil, criminal, family, and administrative law matters. Connect with our legal professionals and paralegals ready to help you find the best resolution.",
     img: beforeAfter,
-    imgAlt: "Konsultasi gratis dengan penasihat hukum",
+    imgAlt: "Free consultation with legal advisors",
     btnExists: true,
-    btnTitle: "Ajukan Konsultasi",
-    btnURL: "https://lsc.bphn.go.id/konsultasi"
+    btnTitle: "Book a Consultation",
+    btnURL: "#",
   },
   {
     isRightSection: true,
-    title: "Peningkatan Kompetensi Paralegal",
+    title: "Empowering Paralegals",
     subTitle:
-      "Kami memperkuat akses keadilan dengan meningkatkan kapasitas para paralegal di seluruh Indonesia. Program pelatihan dan sertifikasi kami dirancang agar para paralegal mampu memberikan layanan hukum yang tepat dan efektif di komunitasnya.",
+      "We strengthen access to justice by enhancing the skills of paralegals across the country. Our paralegal competency development programs ensure community legal assistants are equipped with up-to-date knowledge and practical tools to assist the public effectively.",
     single: false,
-    imgOne: paralegal1,
-    imgOneAlt: "Pelatihan untuk paralegal",
-    imgTwo: paralegal2,
-    imgTwoAlt: "Kegiatan workshop paralegal"
+    imgOne: constructionWorkers,
+    imgOneAlt: "Paralegal training session",
+    imgTwo: aerialView,
+    imgTwoAlt: "Paralegal workshop activities",
   },
   {
     isRightSection: false,
     title: "Peacemaker Justice Award",
     subTitle:
-      "Kami memberikan penghargaan kepada individu atau organisasi yang berkontribusi besar dalam memperluas akses keadilan dan membangun perdamaian di masyarakat. Peacemaker Justice Award menjadi bentuk apresiasi atas dedikasi luar biasa mereka.",
+      "We recognize and honor individuals and organizations who promote access to justice and peace in the community. The Peacemaker Justice Award is our way of celebrating outstanding contributions to legal empowerment and conflict resolution.",
     img: usingTools,
-    imgAlt: "Upacara penghargaan pejuang akses keadilan"
+    imgAlt: "Award ceremony for community justice heroes",
   },
   {
     isRightSection: true,
-    title: "Pos Bantuan Hukum (Posbankum)",
+    title: "Legal Aid Posts (Posbankum)",
     subTitle:
-      "Posbankum hadir di pengadilan dan berbagai wilayah pelosok untuk memberikan layanan langsung berupa informasi hukum, konsultasi, dan bantuan penyusunan dokumen hukum secara cuma-cuma. Mudah diakses, tanpa biaya.",
+      "Located in courts and remote areas, our Legal Aid Posts offer walk-in services where the public can obtain information, legal advice, and assistance in preparing legal documents. No charge, no hassle—just justice.",
     single: false,
-    imgOne: posbakum3,
-    imgOneAlt: "Kanwil Kemenkum DK Jakarta dan BPHN Sosialisasikan Hak Hukum Atas Tanah dan Pembentukan Posbakum di Kelurahan Pondok Ranggon",
-    imgTwo: posbakum4,
-    imgTwoAlt: "Warga mendapatkan layanan Posbakum",
+    imgOne: progressBuilding,
+    imgOneAlt: "Legal Aid Post at courthouse",
+    imgTwo: underConstruction,
+    imgTwoAlt: "Community accessing Posbakum services",
     btnExists: true,
-    btnTitle: "Temukan Posbakum Terdekat",
-    btnURL: "#"
+    btnTitle: "Find a Posbakum Near You",
+    btnURL: "#",
   },
   {
-    isRightSection: true,
-    title: "Pembinaan Penyuluh Hukum",
+    isRightSection: false,
+    title: "Developing Legal Educators",
     subTitle:
-      "Kami melakukan pembinaan berkelanjutan bagi Jabatan Fungsional Penyuluh Hukum. Melalui pelatihan, pendampingan, dan penyediaan sarana digital, kami mendukung mereka dalam meningkatkan kesadaran dan literasi hukum di tengah masyarakat.",
-    single: false,
-    imgOne: penyuluh1,
-    imgOneAlt: "Peluhmi",
-    imgTwo: penyuluh2,
-    imgTwoAlt: "Sesi pelatihan penyuluh hukum"
-  }
+      "We provide guidance and capacity building for Legal Counselors (Penyuluh Hukum) as functional civil servants. Through training, certification, and digital tools, we aim to expand legal awareness and literacy across Indonesia.",
+    img: blueprints,
+    imgAlt: "Training session for Legal Educators",
+  },
 ];
 ---
 

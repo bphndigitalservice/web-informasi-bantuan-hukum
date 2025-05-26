@@ -1,7 +1,7 @@
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer, ZoomControl } from "react-leaflet";
 import { RadiusWidget } from "./radius-widget.tsx";
 import L from "leaflet";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import logo from "@images/logo.svg?url";
 import {
   Card,
@@ -9,112 +9,58 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "@/components/ui/card.tsx";
-import { Phone, Mail, Globe, MapPin, Clock, ExternalLink } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  Globe,
+  MapPin,
+  SmartphoneIcon,
+  ExternalLink,
+  AlertCircle,
+  MapPinIcon,
+  Loader2,
+  Navigation,
+} from "lucide-react";
 import { Button } from "@/components/ui/button.tsx";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import type { OBH } from "@/lib/types.ts";
 import obhMarkerIcon from "@components/react/map/icons/object-marker.png?url";
+import useNearbyOBHs from "@components/react/map/hooks/use-nearby-obh.tsx";
 
-// Constants
-const DEFAULT_POSITION = L.latLng(-6.2593186, 106.865371);
-const DEFAULT_RADIUS = 1000;
-const DEBOUNCE_DELAY = 300;
-
-// Utility functions
-const debounce = (func: Function, delay: number) => {
-  let timeoutId: NodeJS.Timeout;
-  return (...args: any[]) => {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
-};
+// Import added to customize the Lenis scroll behavior
+import Lenis from "lenis";
 
 const getDirections = (address: string) => {
-  window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`, "_blank");
+  window.open(
+    `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`,
+    "_blank",
+  );
 };
-
 // Map marker icon
 const obhIcon = new L.Icon({
   iconUrl: obhMarkerIcon,
   iconSize: [32, 32],
   iconAnchor: [16, 16],
-  popupAnchor: [0, -16]
+  popupAnchor: [0, -16],
 });
-
-// Custom hook for location and OBH data
-const useNearbyOBHs = () => {
-  const [position, setPosition] = useState<L.LatLng>(DEFAULT_POSITION);
-  const [radius, setRadius] = useState<number>(DEFAULT_RADIUS);
-  const [nearbyOBHs, setNearbyOBHs] = useState<OBH[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const fetchNearbyOBHs = useCallback(async (lat: number, lon: number, rad: number) => {
-    setIsLoading(true);
-    try {
-      const response = await fetch(`/api/nearby-obhs?lat=${lat}&lon=${lon}&radius=${rad}`);
-      if (!response.ok) {
-        throw new Error("Failed to fetch nearby OBHs");
-      }
-      const data = await response.json() as OBH[];
-      setNearbyOBHs(data);
-    } catch (error) {
-      console.error("Error fetching nearby OBHs:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
-  const debouncedFetchNearbyOBHs = useCallback(
-    debounce((lat: number, lon: number, rad: number) => {
-      fetchNearbyOBHs(lat, lon, rad);
-    }, DEBOUNCE_DELAY),
-    [fetchNearbyOBHs]
-  );
-
-  useEffect(() => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (location) => {
-          const { latitude, longitude } = location.coords;
-          setPosition(L.latLng(latitude, longitude));
-        },
-        (error) => {
-          console.error("Error getting location:", error);
-        }
-      );
-    }
-  }, []);
-
-  useEffect(() => {
-    debouncedFetchNearbyOBHs(position.lat, position.lng, radius);
-  }, [position, radius, debouncedFetchNearbyOBHs]);
-
-  return {
-    position,
-    setPosition,
-    radius,
-    setRadius,
-    nearbyOBHs,
-    isLoading
-  };
-};
 
 // OBH Popup Component
 const OBHPopup = ({ obh }: { obh: OBH }) => (
-  <Card className="w-[300px] border-0 shadow-none bg-transparent text-foreground">
+  <Card className="text-foreground w-[300px] border-0 bg-transparent shadow-none">
     <CardHeader className="pb-2">
       <CardTitle className="text-lg">{obh.obh_name}</CardTitle>
       <CardDescription className="flex items-start gap-1">
-        <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+        <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0" />
         <span>{obh.obh_address}</span>
       </CardDescription>
     </CardHeader>
-    <CardContent className="pb-2 space-y-2">
+    <CardContent className="space-y-2 pb-2">
       <div className="flex items-start gap-2">
-        <Phone className="h-4 w-4 mt-0.5 text-muted-foreground flex-shrink-0" />
+        <Phone className="text-muted-foreground mt-0.5 h-4 w-4 flex-shrink-0" />
         <div className="flex flex-col">
           {obh.obh_phone_json.telpon?.length > 0 && (
             <span>Tel: {obh.obh_phone_json.telpon.join(", ")}</span>
@@ -128,21 +74,24 @@ const OBHPopup = ({ obh }: { obh: OBH }) => (
         </div>
       </div>
       <div className="flex items-center gap-2">
-        <Mail className="h-4 w-4 text-muted-foreground" />
-        <a href={`mailto:${obh.obh_email}`} className="text-blue-600 hover:underline">
+        <Mail className="text-muted-foreground h-4 w-4" />
+        <a
+          href={`mailto:${obh.obh_email}`}
+          className="text-blue-600 hover:underline"
+        >
           {obh.obh_email}
         </a>
       </div>
       <div className="flex items-center gap-2">
-        <Globe className="h-4 w-4 text-muted-foreground" />
+        <Globe className="text-muted-foreground h-4 w-4" />
         <a
           href={`https://example.com`}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 hover:underline flex items-center"
+          className="flex items-center text-blue-600 hover:underline"
         >
           Website
-          <ExternalLink className="h-3 w-3 ml-1" />
+          <ExternalLink className="ml-1 h-3 w-3" />
         </a>
       </div>
     </CardContent>
@@ -153,18 +102,167 @@ const OBHPopup = ({ obh }: { obh: OBH }) => (
     </CardFooter>
   </Card>
 );
-
 // Loading Indicator Component
 const LoadingIndicator = () => (
-  <div
-    className="absolute top-1/2 left-1/2 z-[1000] transform -translate-x-1/2 -translate-y-1/2 bg-white/70 dark:bg-gray-800/70 p-2 rounded-lg backdrop-blur-sm">
+  <div className="absolute top-1/2 left-1/2 z-[1000] -translate-x-1/2 -translate-y-1/2 transform rounded-lg bg-white/70 p-2 backdrop-blur-sm dark:bg-gray-800/70">
     Loading...
   </div>
 );
-
 // Main Component
 export default function LegalAidOrganizationMap() {
-  const { position, setPosition, radius, setRadius, nearbyOBHs, isLoading } = useNearbyOBHs();
+  const { position, setPosition, radius, setRadius, nearbyOBHs, isLoading } =
+    useNearbyOBHs();
+  const [locationPermission, setLocationPermission] = useState<
+    "prompt" | "granted" | "denied" | "checking"
+  >("checking");
+  const [sidebarVisible, setSidebarVisible] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isInteracting, setIsInteracting] = useState(false);
+  const [activeLocation, setActiveLocation] = useState<number | null>(null);
+  // Ref for the scroll area element
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const sidebarRef = useRef<HTMLDivElement>(null);
+  const [sidebarHeight, setSidebarHeight] = useState(0);
+
+  const handleLocationClick = (locationId: number) => {
+    setActiveLocation(locationId);
+    // You could also center the map on this location here
+  };
+  const handleMapInteraction = () => {
+    if (!isMobile) {
+      setIsInteracting(true);
+    }
+  };
+
+  // Calculate sidebar height on mount and resize
+  useEffect(() => {
+    const updateSidebarHeight = () => {
+      if (sidebarRef.current) {
+        const headerHeight =
+          sidebarRef.current.querySelector("div")?.offsetHeight || 0;
+        const totalHeight = sidebarRef.current.offsetHeight;
+        setSidebarHeight(totalHeight - headerHeight);
+      }
+    };
+
+    updateSidebarHeight();
+    window.addEventListener("resize", updateSidebarHeight);
+    return () => window.removeEventListener("resize", updateSidebarHeight);
+  }, []);
+
+  // Add mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Initialize Lenis with ScrollArea as excluded element
+  useEffect(() => {
+    // Get the ScrollArea element
+    const scrollAreaElement = scrollAreaRef.current;
+
+    if (scrollAreaElement) {
+      // Create a custom Lenis instance that excludes the ScrollArea
+      const lenis = new Lenis({
+        autoRaf: true,
+        // Add scroll areas to the exclude list to prevent conflicts
+        eventsTarget: document.documentElement,
+        smoothWheel: true,
+        // This prevents Lenis from handling scroll events in ScrollArea
+        prevent: (el: Element) => {
+          // Check if the element is inside a ScrollArea
+          return (
+            el === scrollAreaElement ||
+            el.closest("[data-radix-scroll-area-viewport]") !== null ||
+            el.closest("[data-slot='scroll-area-viewport']") !== null
+          );
+        },
+      });
+
+      // Clean up Lenis when component unmounts
+      return () => {
+        lenis.destroy();
+      };
+    }
+  }, []);
+
+  // Auto-hide sidebar when interacting with map
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (isInteracting && !isMobile) {
+      setSidebarVisible(false);
+      timeout = setTimeout(() => {
+        setIsInteracting(false);
+        setSidebarVisible(true);
+      }, 3000); // Show sidebar again after 3 seconds of no interaction
+    }
+    return () => clearTimeout(timeout);
+  }, [isInteracting, isMobile]);
+
+  useEffect(() => {
+    checkLocationPermission();
+  }, []);
+
+  const checkLocationPermission = async () => {
+    if (!navigator.geolocation) {
+      setLocationPermission("denied");
+      return;
+    }
+    try {
+      // Check if permission is already granted
+      const permission = await navigator.permissions.query({
+        name: "geolocation",
+      });
+      if (permission.state === "granted") {
+        getCurrentLocation();
+      } else if (permission.state === "denied") {
+        setLocationPermission("denied");
+      } else {
+        setLocationPermission("prompt");
+      }
+      // Listen for permission changes
+      permission.onchange = () => {
+        if (permission.state === "granted") {
+          getCurrentLocation();
+        } else if (permission.state === "denied") {
+          setLocationPermission("denied");
+        } else {
+          setLocationPermission("prompt");
+        }
+      };
+    } catch (error) {
+      // Fallback for browsers that don't support permissions API
+      setLocationPermission("prompt");
+    }
+  };
+
+  const getCurrentLocation = () => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        setPosition(L.latLng(latitude, longitude));
+        setLocationPermission("granted");
+      },
+      (error) => {
+        console.error("Error getting location:", error);
+        setLocationPermission("denied");
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 300000, // 5 minutes
+      },
+    );
+  };
+
+  const requestLocationPermission = () => {
+    setLocationPermission("checking");
+    getCurrentLocation();
+  };
 
   const handlePositionChange = (newLatLng: L.LatLng) => {
     setPosition(newLatLng);
@@ -175,42 +273,236 @@ export default function LegalAidOrganizationMap() {
   };
 
   return (
-    <div className="relative z-0">
-      {isLoading && <LoadingIndicator />}
+    <div className="relative z-0 h-full w-full overflow-hidden">
+      {/* Left Sidebar Overlay - Hidden on mobile */}
+      {!isMobile && (
+        <div
+          ref={sidebarRef}
+          className={`border-accent-foreground/10 absolute top-2.5 bottom-2.5 left-2.5 z-[500] flex w-80 flex-col overflow-hidden rounded-lg border bg-yellow-300/10 shadow-2xl backdrop-blur-xl transition-transform duration-300 ease-in-out dark:bg-black/50 ${
+            sidebarVisible ? "translate-x-0" : "-translate-x-full"
+          }`}
+          onMouseEnter={() => setSidebarVisible(true)}
+        >
+          <div className="border-border shrink-0 border-b p-4">
+            <h2 className="mb-2 text-lg font-semibold">
+              {location ? "OBH Terdekat" : "Semua OBH"}
+            </h2>
+            <p className="text-muted-foreground text-sm">
+              {location
+                ? `Terdapat ${nearbyOBHs.length} OBH di dekat anda.`
+                : `Showing ${nearbyOBHs.length} organizations`}
+            </p>
+          </div>
 
-      <MapContainer
-        className="h-[80vh] w-full rounded-2xl border border-gray-800"
-        center={position}
-        zoom={14}
-        scrollWheelZoom={true}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <RadiusWidget
-          center={position}
-          radius={radius}
-          onRadiusChange={handleRadiusChange}
-          onCenterChange={handlePositionChange}
-        />
-
-        {nearbyOBHs.map((obh, index) => (
-          <Marker
-            key={index}
-            icon={obhIcon}
-            position={[obh.latitude, obh.longitude]}
+          {/* ScrollArea container with explicit height and reference */}
+          <div
+            ref={scrollAreaRef}
+            className="flex-grow overflow-hidden"
+            style={{
+              height: `calc(100% - ${sidebarRef.current?.querySelector("div")?.offsetHeight || 0}px)`,
+            }}
           >
-            <Popup>
-              <OBHPopup obh={obh} />
-            </Popup>
-          </Marker>
-        ))}
-      </MapContainer>
-
+            <ScrollArea className="h-full">
+              <div className="space-y-4 p-4">
+                {isLoading ? (
+                  <div className="space-y-4">
+                    {[...Array(3)].map((_, index) => (
+                      <Card key={index} className="p-4">
+                        <div className="flex items-center space-x-4">
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                          <div className="flex-1 space-y-2">
+                            <div className="bg-muted h-4 animate-pulse rounded" />
+                            <div className="bg-muted h-3 w-3/4 animate-pulse rounded" />
+                          </div>
+                        </div>
+                      </Card>
+                    ))}
+                    <div className="py-4 text-center">
+                      <Loader2 className="mx-auto mb-2 h-6 w-6 animate-spin" />
+                      <p className="text-muted-foreground text-sm">
+                        Finding nearby organizations...
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  nearbyOBHs.map((location, index) => (
+                    <Card
+                      key={location.id}
+                      className={`cursor-pointer transition-all hover:shadow-md ${
+                        activeLocation === location.id
+                          ? "ring-primary ring-2"
+                          : ""
+                      }`}
+                      onClick={() => handleLocationClick(location.id)}
+                    >
+                      <CardHeader className="pb-2">
+                        <div className="flex flex-row items-start justify-between">
+                          <CardTitle className="text-base  leading-tight">
+                            {location.obh_name}
+                          </CardTitle>
+                          {location.jarak_meter && (
+                            <Badge
+                              variant="secondary"
+                              className="ml-2 flex items-center gap-1"
+                            >
+                              <Navigation className="h-3 w-3" />
+                              {(location.jarak_meter / 1000).toFixed(2)} KM
+                            </Badge>
+                          )}
+                        </div>
+                        <CardDescription className="flex items-start gap-1 text-xs">
+                          <MapPin className="mt-0.5 h-3 w-3 flex-shrink-0" />
+                          <span>{location.obh_address}</span>
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="pb-2">
+                        <div className="space-y-1 text-xs">
+                          <div className="flex items-center gap-2">
+                            <SmartphoneIcon className="text-muted-foreground h-3 w-3" />
+                            {location.obh_phone_json.handphone.join(',')}
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Phone className="text-muted-foreground h-3 w-3" />
+                            {location.obh_phone_json.handphone.join(',')}
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Mail className="text-muted-foreground h-3 w-3" />
+                            <span>{location.obh_email}</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                      <CardFooter className="pt-2">
+                        <Button
+                          size="sm"
+                          variant="default"
+                          className="w-full text-xs"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            getDirections(location.obh_address);
+                          }}
+                        >
+                          <span className="flex items-center gap-1">
+                            <Navigation className={"w-24 h-24"}/>Petunjuk Arah</span>
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  ))
+                )}
+              </div>
+            </ScrollArea>
+          </div>
+        </div>
+      )}
+      {/* Sidebar Toggle Button - Only visible when sidebar is hidden */}
+      {!isMobile && !sidebarVisible && (
+        <Button
+          variant="secondary"
+          size="sm"
+          className="absolute top-4 left-4 z-[600] shadow-lg"
+          onClick={() => setSidebarVisible(true)}
+        >
+          <MapPin className="mr-2 h-4 w-4" />
+          Show List
+        </Button>
+      )}
+      {/* Location Permission Overlay */}
+      {(locationPermission === "prompt" ||
+        locationPermission === "denied" ||
+        locationPermission === "checking") && (
+        <div className="absolute inset-0 z-[1000] flex items-center justify-center">
+          {/* Blurred backdrop */}
+          <div className="bg-background/80 absolute inset-0 backdrop-blur-sm" />
+          {/* Overlay content */}
+          <Card className="relative z-10 mx-4 w-[400px]">
+            <CardHeader className="text-center">
+              <div className="bg-primary/10 mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full">
+                {locationPermission === "checking" ? (
+                  <div className="border-primary h-6 w-6 animate-spin rounded-full border-2 border-t-transparent" />
+                ) : locationPermission === "denied" ? (
+                  <AlertCircle className="text-destructive h-6 w-6" />
+                ) : (
+                  <MapPinIcon className="text-primary h-6 w-6" />
+                )}
+              </div>
+              <CardTitle className="text-xl">
+                {locationPermission === "checking"
+                  ? "Getting Your Location..."
+                  : locationPermission === "denied"
+                    ? "Location Access Denied"
+                    : "Enable Location Services"}
+              </CardTitle>
+              <CardDescription className="text-center">
+                {locationPermission === "checking"
+                  ? "Please wait while we access your location to show nearby legal aid services."
+                  : locationPermission === "denied"
+                    ? "Location access was denied. You can still browse all legal aid locations on the map, but we cannot show services near you."
+                    : "Allow location access to find legal aid services near you and get personalized recommendations."}
+              </CardDescription>
+            </CardHeader>
+            <CardFooter className="flex flex-col gap-2">
+              {locationPermission !== "checking" && (
+                <>
+                  <Button
+                    onClick={requestLocationPermission}
+                    className="w-full"
+                    disabled={["prompt", "checking"].includes(
+                      locationPermission,
+                    )}
+                  >
+                    {locationPermission === "denied"
+                      ? "Try Again"
+                      : "Allow Location Access"}
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => setLocationPermission("granted")}
+                    className="w-full"
+                  >
+                    Continue Without Location
+                  </Button>
+                </>
+              )}
+            </CardFooter>
+          </Card>
+        </div>
+      )}
+      {isLoading && <LoadingIndicator />}
       <div
-        className="absolute top-4 right-4 z-[1000] rounded-lg bg-white/30 backdrop-blur-2xl p-2 shadow-md dark:bg-gray-300">
-        <img src={logo} alt="Logo" className="h-8 w-auto" />
+        className={"flex h-full w-full items-center justify-center"}
+        onMouseDown={handleMapInteraction}
+        onTouchStart={handleMapInteraction}
+        onWheel={handleMapInteraction}
+      >
+        <MapContainer
+          className="border-accent-foreground h-[80vh] w-full rounded-lg border shadow-lg"
+          center={position}
+          zoom={14}
+          zoomControl={false}
+          scrollWheelZoom={false}
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <RadiusWidget
+            center={position}
+            radius={radius}
+            onRadiusChange={handleRadiusChange}
+            onCenterChange={handlePositionChange}
+          />
+          {nearbyOBHs.map((obh, index) => (
+            <Marker
+              key={index}
+              icon={obhIcon}
+              position={[obh.latitude, obh.longitude]}
+            >
+              <Popup>
+                <OBHPopup obh={obh} />
+              </Popup>
+            </Marker>
+          ))}
+          <ZoomControl position="topright" />
+        </MapContainer>
       </div>
     </div>
   );

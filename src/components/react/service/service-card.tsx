@@ -1,10 +1,6 @@
 import React from "react";
 import {
-  Search,
-  FileText,
   MessageCircle,
-  Heart,
-  FileIcon as FileList,
   Database,
 } from "lucide-react";
 
@@ -68,7 +64,7 @@ const services = [
   },
   {
     title: "LSCC",
-    description: "Konsultasi Hukum Online",
+    description: "Konsultasi Hukum",
     icon: (
       <LazyLoadImage
         alt="Icon Ruang Paralegal"
@@ -80,8 +76,8 @@ const services = [
     href: "https://lsc.bphn.go.id/konsultasi",
   },
   {
-    title: "Penyuluh Hukum",
-    description: "Pembinaan dan pengembangan Penyuluh Hukum di Indonesia",
+    title: "Penyuluhan Hukum",
+    description: "Aktivitas penyuluhan Hukum",
     icon: <MessageCircle className="h-12 w-12 text-[#152553]" />,
     href: "https://fungsional.bphn.go.id",
   },

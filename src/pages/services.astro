@@ -6,16 +6,16 @@ import LeftSection from "@components/ui/blocks/LeftSection.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
 
 // Import necessary images
-import blueprints from "@images/blueprints-image.avif";
+import blueprints from "@images/services/bantuan-hukum.webp";
 import personWorking from "@images/person-working.avif";
-import beforeAfter from "@images/before-after.avif";
-import posbakum3 from "@images/services/posbakum_3.jpg";
+import beforeAfter from "@images/services/konsultasi-hukum.png";
+import posbakum3 from "@images/services/posbankum.webp";
 import posbakum4 from "@images/services/posbakum_4.jpg";
 import paralegal1 from "@images/services/paralegal_1.webp";
-import paralegal2 from "@images/services/paralegal_2.webp";
-import penyuluh1 from "@images/services/penyuluh1.jpg";
+import paralegal2 from "@images/services/paralegal-nu.webp";
+import penyuluh1 from "@images/services/penyuluhan-min.webp";
 import penyuluh2 from "@images/services/penyuluh2.webp";
-import usingTools from "@images/using-tools.avif";
+import usingTools from "@images/services/pja.webp";
 import { SITE } from "@data/constants";
 
 interface Article {
@@ -40,7 +40,7 @@ const articles: Article[] = [
     title: "Layanan Bantuan Hukum Gratis",
     subTitle:
       "Kami berkomitmen untuk menjamin akses keadilan bagi seluruh masyarakat. Layanan Bantuan Hukum Gratis kami memastikan warga tidak mampu tetap mendapatkan pendampingan hukum di pengadilan tanpa harus terbebani biaya.",
-    single: false,
+    single: true,
     imgOne: blueprints,
     imgOneAlt: "Ilustrasi konsultasi bantuan hukum",
     imgTwo: personWorking,
@@ -81,7 +81,7 @@ const articles: Article[] = [
     title: "Pos Bantuan Hukum (Posbankum)",
     subTitle:
       "Posbankum hadir di pengadilan dan berbagai wilayah pelosok untuk memberikan layanan langsung berupa informasi hukum, konsultasi, dan bantuan penyusunan dokumen hukum secara cuma-cuma. Mudah diakses, tanpa biaya.",
-    single: false,
+    single: true,
     imgOne: posbakum3,
     imgOneAlt: "Kanwil Kemenkum DK Jakarta dan BPHN Sosialisasikan Hak Hukum Atas Tanah dan Pembentukan Posbakum di Kelurahan Pondok Ranggon",
     imgTwo: posbakum4,

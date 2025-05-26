@@ -22,8 +22,6 @@ const blogPosts: CollectionEntry<"blog">[] = bahasaBlogEntries.sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-// Get all insights posts
-const insightPosts: CollectionEntry<"insights">[] = bahasaInsightsEntries;
 
 // Separate the most recent post from others
 const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
@@ -95,26 +93,4 @@ const ogTitle = "Blog Bantuan Hukum & Kesadaran Hukum | Portal Informasi Bantuan
   >
     <CardBlogRecent blogEntry={mostRecentPost} />
   </section>
-  {/* Insights section */}
-  <!--<section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
-      <h2
-        class="text-2xl font-bold text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
-      >
-        {secondTitle}
-      </h2>
-      <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
-        {secondSubTitle}
-      </p>
-    </div>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        insightPosts.map((insightEntry) => (
-          <CardInsight insightEntry={insightEntry} />
-        ))
-      }
-    </div>
-  </section>-->
 </MainLayout>

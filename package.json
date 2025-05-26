@@ -45,7 +45,7 @@
     "react-lazy-load-image-component": "^1.6.3",
     "react-leaflet": "5.0.0-rc.2",
     "rimraf": "^6.0.1",
-    "sharp": "^0.34.1",
+    "sharp": "^0.34.2",
     "sharp-ico": "^0.1.5",
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.7"

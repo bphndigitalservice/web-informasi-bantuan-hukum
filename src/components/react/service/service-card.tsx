@@ -4,11 +4,13 @@ import {
   Database,
 } from "lucide-react";
 
-import lsc from "./icon/LSC.png?url";
+import lsc from "./icon/cerdas-hukum_n.svg?url";
 import posbakum from "./icon/POSBANKUM.png?url";
 import apregal from "./icon/APREGAL.png?url";
 import pja from "./icon/PJA.png?url";
+import penyuluhan from "./icon/penyuluhan-hukum.svg?url";
 import pkg from "react-lazy-load-image-component";
+
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 const { LazyLoadImage } = pkg;
@@ -63,8 +65,8 @@ const services = [
     href: "https://sidbankum.bphn.go.id/",
   },
   {
-    title: "LSCC",
-    description: "Konsultasi Hukum",
+    title: "Cerdas Hukum",
+    description: "Kanal Informasi dan Konsultasi Hukum untuk masyarakat cerdas hukum",
     icon: (
       <LazyLoadImage
         alt="Icon Ruang Paralegal"
@@ -78,7 +80,12 @@ const services = [
   {
     title: "Penyuluhan Hukum",
     description: "Aktivitas penyuluhan Hukum",
-    icon: <MessageCircle className="h-12 w-12 text-[#152553]" />,
+    icon: <LazyLoadImage
+      alt="Icon Ruang Paralegal"
+      src={penyuluhan}
+      className="h-24 w-24 dark:invert-100"
+      placeholderSrc={penyuluhan}
+    />,
     href: "https://lsc.bphn.go.id/Kanalhukum",
   },
 ];

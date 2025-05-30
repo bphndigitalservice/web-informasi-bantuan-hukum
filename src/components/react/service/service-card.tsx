@@ -4,7 +4,7 @@ import {
   Database,
 } from "lucide-react";
 
-import lsc from "./icon/cerdas-hukum_n.svg?url";
+import lsc from "./icon/literasi-hukum.svg?url";
 import posbakum from "./icon/POSBANKUM.png?url";
 import apregal from "./icon/APREGAL.png?url";
 import pja from "./icon/PJA.png?url";
@@ -65,17 +65,17 @@ const services = [
     href: "https://sidbankum.bphn.go.id/",
   },
   {
-    title: "Cerdas Hukum",
+    title: "Literasi Hukum",
     description: "Kanal Informasi dan Konsultasi Hukum untuk masyarakat cerdas hukum",
     icon: (
       <LazyLoadImage
-        alt="Icon Ruang Paralegal"
+        alt="Icon Literasi Hukum"
         src={lsc}
-        className="h-24 w-24 dark:invert-100"
+        className="h-24 w-24 dark:invert-100 "
         placeholderSrc={lsc}
       />
     ),
-    href: "https://cerdashukum.bphn.go.id",
+    href: "https://literasi.bphn.go.id",
   },
   {
     title: "Penyuluhan Hukum",

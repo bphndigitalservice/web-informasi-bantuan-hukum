@@ -75,7 +75,7 @@ const services = [
         placeholderSrc={lsc}
       />
     ),
-    href: "https://literasi.bphn.go.id",
+    href: "https://literasihukum.bphn.go.id",
   },
   {
     title: "Penyuluhan Hukum",
@@ -86,7 +86,7 @@ const services = [
       className="h-24 w-24 dark:invert-100"
       placeholderSrc={penyuluhan}
     />,
-    href: "https://cerdashukum.bphn.go.id/Kanalhukum",
+    href: "https://fungsional.bphn.go.id",
   },
 ];
 

@@ -61,7 +61,7 @@ const services = [
   {
     title: "SIDBANKUM",
     description: "Sistem Informasi Database Bantuan Hukum",
-    icon: <Database className="h-12 w-12 text-[#152553]" />,
+    icon: <Database className="h-16 w-16 text-[#152553]" />,
     href: "https://sidbankum.bphn.go.id/",
   },
   {
@@ -71,7 +71,7 @@ const services = [
       <LazyLoadImage
         alt="Icon Literasi Hukum"
         src={lsc}
-        className="h-24 w-24 dark:invert-100 my-2"
+        className="h-20 w-20 dark:invert-100 my-2"
         placeholderSrc={lsc}
       />
     ),
@@ -120,7 +120,7 @@ function ServiceCard({ href, icon, title, description }: ServiceCardProps) {
     <a
       href={href}
       target={"_blank"}
-      className="flex flex-col items-center justify-center rounded-3xl border border-[#152553] p-3 transition-all duration-300 hover:border-[#FA5A15] hover:shadow-md sm:p-6 dark:border-[#FFCB05]/50 dark:bg-[#FFCB05]/50 dark:backdrop-blur-2xl dark:hover:shadow-2xl dark:hover:shadow-white/20"
+      className="flex flex-col items-center justify-center rounded-3xl border border-[#152553] p-3 transition-all duration-300 hover:border-[#FA5A15] hover:shadow-md sm:p-6 dark:border-[#FFCB05]/50 dark:bg-[#FFCB05]/50 "
     >
       <div className="mb-4">{icon}</div>
       <h3 className="text-center text-sm font-bold tracking-wide text-slate-800 uppercase">

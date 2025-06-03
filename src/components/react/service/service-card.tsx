@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 
 import lsc from "./icon/literasi-hukum.svg?url";
-import posbakum from "./icon/POSBANKUM.png?url";
+import posbakum from "./icon/posbankum.png?url";
 import apregal from "./icon/APREGAL.png?url";
 import pja from "./icon/PJA.png?url";
 import penyuluhan from "./icon/penyuluhan-hukum.svg?url";
@@ -38,7 +38,7 @@ const services = [
         alt="Icon Ruang Paralegal"
         src={posbakum}
         //effect="blur"
-        className="h-20 w-20"
+        className="h-24 w-24"
         placeholderSrc={posbakum}
       />
     ),

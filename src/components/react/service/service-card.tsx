@@ -65,7 +65,7 @@ const services = [
     href: "https://sidbankum.bphn.go.id/",
   },
   {
-    title: "",
+    title: "Literasi Hukum",
     description: "Kanal Informasi dan Konsultasi Hukum untuk masyarakat cerdas hukum",
     icon: (
       <LazyLoadImage

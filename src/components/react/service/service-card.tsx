@@ -8,7 +8,7 @@ import lsc from "./icon/literasi-hukum-monochrome.svg?url";
 import posbakum from "./icon/posbankum.png?url";
 import apregal from "./icon/APREGAL.png?url";
 import pja from "./icon/PJA.png?url";
-import penyuluhan from "./icon/penyuluhan-hukum.svg?url";
+import penyuluhan from "./icon/ph.png?url";
 import pkg from "react-lazy-load-image-component";
 
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -81,7 +81,7 @@ const services = [
     title: "Penyuluhan Hukum",
     description: "Aktivitas penyuluhan Hukum",
     icon: <LazyLoadImage
-      alt="Icon Ruang Paralegal"
+      alt="Icon Penyuluhan Hukum"
       src={penyuluhan}
       className="h-24 w-24 dark:invert-100"
       placeholderSrc={penyuluhan}

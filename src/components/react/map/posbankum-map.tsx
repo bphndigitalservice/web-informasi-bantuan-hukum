@@ -2,6 +2,7 @@ import { MapContainer, Marker, Popup, TileLayer, ZoomControl } from "react-leafl
 import { RadiusWidget } from "./radius-widget.tsx";
 import L from "leaflet";
 import { useState, useEffect, useCallback, useRef } from "react";
+import logo from "@images/logo.svg?url";
 import {
   Card,
   CardContent,
@@ -26,18 +27,18 @@ import { Button } from "@/components/ui/button.tsx";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import type { OBH } from "@/lib/types.ts";
+import type { OBH, Posbankum } from "@/lib/types.ts";
 import obhMarkerIcon from "@components/react/map/icons/object-marker.png?url";
 import { useNearbyLocations } from "@components/react/map/hooks/use-nearby-locations.tsx";
+import LoadingIndicator from "@components/react/map/loading-indicator.tsx";
 
 // Import added to customize the Lenis scroll behavior
 import Lenis from "lenis";
-import LoadingIndicator from "@components/react/map/loading-indicator.tsx";
 import { getDirections } from "@/lib/map.ts";
 
 
 // Map marker icon
-const obhIcon = new L.Icon({
+const posbankumIcon = new L.Icon({
   iconUrl: obhMarkerIcon,
   iconSize: [32, 32],
   iconAnchor: [16, 16],
@@ -45,38 +46,29 @@ const obhIcon = new L.Icon({
 });
 
 
-// OBH Popup Component
-const OBHPopup = ({ obh }: { obh: OBH }) => (
+const PosbankumPopup = ({ posbankum }: { posbankum: Posbankum }) => (
   <Card className="text-foreground w-[300px] border-0 bg-transparent shadow-none">
     <CardHeader className="pb-2">
-      <CardTitle className="text-lg">{obh.obh_name}</CardTitle>
+      <CardTitle className="text-lg">{posbankum.posbankum_name}</CardTitle>
       <CardDescription className="flex items-start gap-1">
         <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0" />
-        <span>{obh.obh_address}</span>
+        <span>{posbankum.posbankum_address}</span>
       </CardDescription>
     </CardHeader>
     <CardContent className="space-y-2 pb-2">
       <div className="flex items-start gap-2">
         <Phone className="text-muted-foreground mt-0.5 h-4 w-4 flex-shrink-0" />
         <div className="flex flex-col">
-          {obh.obh_phone_json.telpon?.length > 0 && (
-            <span>Tel: {obh.obh_phone_json.telpon.join(", ")}</span>
-          )}
-          {obh.obh_phone_json.handphone?.length > 0 && (
-            <span>Mobile: {obh.obh_phone_json.handphone.join(", ")}</span>
-          )}
-          {obh.obh_phone_json.fax?.length > 0 && (
-            <span>Fax: {obh.obh_phone_json.fax.join(", ")}</span>
-          )}
+            <span>Tel: {posbankum.posbankum_phone}</span>
         </div>
       </div>
       <div className="flex items-center gap-2">
         <Mail className="text-muted-foreground h-4 w-4" />
         <a
-          href={`mailto:${obh.obh_email}`}
+          href={`mailto:${posbankum.posbankum_email}`}
           className="text-blue-600 hover:underline"
         >
-          {obh.obh_email}
+          {posbankum.posbankum_email}
         </a>
       </div>
       <div className="flex items-center gap-2">
@@ -93,18 +85,17 @@ const OBHPopup = ({ obh }: { obh: OBH }) => (
       </div>
     </CardContent>
     <CardFooter>
-      <Button onClick={() => getDirections(obh.obh_address)} className="w-full">
+      <Button onClick={() => getDirections(posbankum.posbankum_address)} className="w-full">
         Petunjuk Arah
       </Button>
     </CardFooter>
   </Card>
 );
 
-
 // Main Component
-export default function LegalAidOrganizationMap() {
+export default function PosbankumMap() {
   const { position, setPosition, radius, setRadius, nearbyLocations, isLoading } =
-    useNearbyLocations("obh");
+    useNearbyLocations("posbankum");
   const [locationPermission, setLocationPermission] = useState<
     "prompt" | "granted" | "denied" | "checking"
   >("checking");
@@ -278,12 +269,12 @@ export default function LegalAidOrganizationMap() {
         >
           <div className="border-border shrink-0 border-b p-4">
             <h2 className="mb-2 text-lg font-semibold dark:text-white">
-              {location ? "OBH Terdekat" : "Semua OBH"}
+              {location ? "Posbankum Terdekat" : "Semua Posbankum"}
             </h2>
-            <p className="text-muted-foreground text-sm dark:text-whitelegal-aid-organization-map.tsx">
+            <p className="text-muted-foreground text-sm dark:text-white">
               {location
-                ? `Terdapat ${nearbyLocations.length} OBH di dekat anda.`
-                : `Showing ${nearbyLocations.length} organizations`}
+                ? `Terdapat ${nearbyLocations.length} Posbankum di dekat anda.`
+                : `Showing ${nearbyLocations.length} Posbankum`}
             </p>
           </div>
 
@@ -331,7 +322,7 @@ export default function LegalAidOrganizationMap() {
                       <CardHeader className="pb-2">
                         <div className="flex flex-row items-start justify-between">
                           <CardTitle className="text-base  leading-tight">
-                            {location.obh_name}
+                            {location.posbankum_name}
                           </CardTitle>
                           {location.jarak_meter && (
                             <Badge
@@ -345,22 +336,18 @@ export default function LegalAidOrganizationMap() {
                         </div>
                         <CardDescription className="flex items-start gap-1 text-xs">
                           <MapPin className="mt-0.5 h-3 w-3 flex-shrink-0" />
-                          <span>{location.obh_address}</span>
+                          <span>{location.posbankum_address}</span>
                         </CardDescription>
                       </CardHeader>
                       <CardContent className="pb-2">
                         <div className="space-y-1 text-xs">
                           <div className="flex items-center gap-2">
-                            <SmartphoneIcon className="text-muted-foreground h-3 w-3" />
-                            {location.obh_phone_json.handphone.join(',')}
-                          </div>
-                          <div className="flex items-center gap-2">
                             <Phone className="text-muted-foreground h-3 w-3" />
-                            {location.obh_phone_json.handphone.join(',')}
+                            <span>{location.posbankum_phone}</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <Mail className="text-muted-foreground h-3 w-3" />
-                            <span>{location.obh_email}</span>
+                            <span>{location.posbankum_email}</span>
                           </div>
                         </div>
                       </CardContent>
@@ -371,7 +358,7 @@ export default function LegalAidOrganizationMap() {
                           className="w-full text-xs"
                           onClick={(e) => {
                             e.stopPropagation();
-                            getDirections(location.obh_address);
+                            getDirections(location.posbankum_address);
                           }}
                         >
                           <span className="flex items-center gap-1">
@@ -483,14 +470,14 @@ export default function LegalAidOrganizationMap() {
             onRadiusChange={handleRadiusChange}
             onCenterChange={handlePositionChange}
           />
-          {nearbyLocations.map((obh, index) => (
+          {nearbyLocations.map((posbankum, index) => (
             <Marker
               key={index}
-              icon={obhIcon}
-              position={[obh.latitude, obh.longitude]}
+              icon={posbankumIcon}
+              position={[posbankum.latitude, posbankum.longitude]}
             >
               <Popup>
-                <OBHPopup obh={obh} />
+                <PosbankumPopup posbankum={posbankum} />
               </Popup>
             </Marker>
           ))}

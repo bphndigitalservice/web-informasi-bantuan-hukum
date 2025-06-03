@@ -1,0 +1,49 @@
+---
+// Import necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import MainSection from "@components/ui/blocks/MainSection.astro";
+
+import { SITE } from "@data/constants";
+import LegalAidOrganizationMap from "@/components/react/map/legal-aid-organization-map";
+import PosbankumMap from "@/components/react/map/posbankum-map";
+
+
+const pageTitle: string = `Cari Posbankum Terdekat | ${SITE.title}`;
+const metaDescription =
+  "Temukan Posbantuan Hukum terdekat di wilayah Anda";
+
+const ogTitle = "Temukan Posbankum Terdekat dan Dapatkan Bantuan Hukum Sekarang";;
+---
+
+<MainLayout
+  title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE.url}/posbankum-terdekat`,
+    url: `${SITE.url}/posbankum-terdekat`,
+    name: "Pos Bantuan Hukum Terdekat",
+    description:
+      "Pencarian lokasi Pos Bantuan Hukum (OBH) terdekat yang menyediakan layanan bantuan hukum gratis, konsultasi, dan pendampingan hukum di seluruh Indonesia.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: `${SITE.url}`,
+      name: "Badan Pembinaan Hukum Nasional",
+      description:
+        "Portal resmi Badan Pembinaan Hukum Nasional – Kementerian Hukum yang menyediakan informasi hukum, layanan bantuan hukum, dan pembinaan masyarakat sadar hukum."
+    },
+    inLanguage: "id-ID"
+  }}
+>
+  {/* MainSection: pengantar layanan hukum BPHN */}
+  <MainSection
+    title="Butuh Bantuan Hukum? Kunjungi Posbankum Terdekat!"
+    subTitle="Temukan Pos Bantuan Hukum terdekat yang bisa bantu kamu secara gratis!"
+    btnExists={false}
+  />
+
+  <PosbankumMap client:only="react" />
+</MainLayout>

@@ -120,7 +120,7 @@ function ServiceCard({ href, icon, title, description }: ServiceCardProps) {
     <a
       href={href}
       target={"_blank"}
-      className="flex flex-col items-center justify-center rounded-3xl border border-[#152553] p-3 transition-all duration-300 hover:border-white hover:shadow-md sm:p-6 dark:border-white/80 dark:bg-white/40 dark:backdrop-blur-2xl dark:hover:border-[#FFCB05]/30"
+      className="flex flex-col items-center justify-center rounded-3xl border border-[#152553] p-3 transition-all duration-300 hover:border-[#FA5A15] hover:shadow-md sm:p-6 dark:border-[#FFCB05]/50 dark:bg-[#FFCB05]/50 dark:backdrop-blur-2xl dark:hover:shadow-2xl dark:hover:shadow-white/20"
     >
       <div className="mb-4">{icon}</div>
       <h3 className="text-center text-sm font-bold tracking-wide text-slate-800 uppercase">

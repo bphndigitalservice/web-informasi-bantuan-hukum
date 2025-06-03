@@ -4,7 +4,7 @@ import {
   Database,
 } from "lucide-react";
 
-import lsc from "./icon/literasi-hukum.svg?url";
+import lsc from "./icon/literasi-hukum-monochrome.svg?url";
 import posbakum from "./icon/posbankum.png?url";
 import apregal from "./icon/APREGAL.png?url";
 import pja from "./icon/PJA.png?url";
@@ -32,7 +32,7 @@ const services = [
   },
   {
     title: "Pos Bantuan Hukum",
-    description: "Layanan bantuan hukum untuk masyarakat - di desa",
+    description: "Layanan bantuan hukum untuk masyarakat - di desa/kelurahan",
     icon: (
       <LazyLoadImage
         alt="Icon Ruang Paralegal"
@@ -71,7 +71,7 @@ const services = [
       <LazyLoadImage
         alt="Icon Literasi Hukum"
         src={lsc}
-        className="h-auto w-48 dark:invert-100 my-2"
+        className="h-24 w-24 dark:invert-100 my-2"
         placeholderSrc={lsc}
       />
     ),

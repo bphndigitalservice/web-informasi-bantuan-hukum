@@ -24,7 +24,7 @@ const services = [
         alt="Icon Ruang Paralegal"
         src={apregal}
         //effect="blur"
-        className="h-20 w-20"
+        className="h-24 w-24"
         placeholderSrc={apregal}
       />
     ),

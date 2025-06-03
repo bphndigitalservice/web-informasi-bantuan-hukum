@@ -71,7 +71,7 @@ const services = [
       <LazyLoadImage
         alt="Icon Literasi Hukum"
         src={lsc}
-        className="h-24 w-24 dark:invert-100 "
+        className="h-auto w-48 dark:invert-100 my-2"
         placeholderSrc={lsc}
       />
     ),

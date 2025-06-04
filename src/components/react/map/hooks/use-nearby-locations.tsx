@@ -5,7 +5,7 @@ import type { MapType } from "@/lib/map";
 
 // Constants
 const DEFAULT_POSITION = L.latLng(-6.2593186, 106.865371);
-const DEFAULT_RADIUS = 1000;
+const DEFAULT_RADIUS = 5000;
 const DEBOUNCE_DELAY = 300;
 
 // Type for the nearby locations (either OBH or Posbankum)

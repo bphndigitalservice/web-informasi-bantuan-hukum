@@ -40,6 +40,8 @@ export const GET: APIRoute = async ({ url, params, request, cookies, redirect })
       });
     }
 
+    console.log(data)
+
     return new Response(JSON.stringify(data), {
       status: 200,
       headers: {

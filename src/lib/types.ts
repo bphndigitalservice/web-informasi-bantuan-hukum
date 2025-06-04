@@ -24,6 +24,7 @@ type Posbankum = {
   city_name: string;
   province_name: string;
   district_name: string;
+  posbankum_village: string;
   latitude: number;
   longitude: number;
   jarak_meter: number;

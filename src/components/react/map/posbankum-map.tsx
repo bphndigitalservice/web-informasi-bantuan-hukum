@@ -66,6 +66,24 @@ const PosbankumPopup = ({ posbankum }: { posbankum: Posbankum }) => (
           <span>Tel: {posbankum.phone}</span>
         </div>
       </div>
+      <div className="text-sm space-y-1">
+        <div className="flex items-start gap-1">
+          <span className="font-semibold">Provinsi:</span>
+          <span>{posbankum.province_name}</span>
+        </div>
+        <div className="flex items-start gap-1">
+          <span className="font-semibold">Kabupaten/Kota:</span>
+          <span>{posbankum.city_name}</span>
+        </div>
+        <div className="flex items-start gap-1">
+          <span className="font-semibold">Kecamatan:</span>
+          <span>{posbankum.district_name}</span>
+        </div>
+        <div className="flex items-start gap-1">
+          <span className="font-semibold">Desa/Kelurahan:</span>
+          <span>{posbankum.posbankum_village}</span>
+        </div>
+      </div>
     </CardContent>
     <CardFooter>
       <Button
@@ -336,6 +354,24 @@ export default function PosbankumMap() {
                           <div className="flex items-center gap-2">
                             <Phone className="text-muted-foreground h-3 w-3" />
                             <span>{location.phone}</span>
+                          </div>
+                          <div className="mt-2 space-y-1 border-t pt-2">
+                            <div className="flex items-start gap-1">
+                              <span className="font-semibold">Provinsi:</span>
+                              <span>{location.province_name}</span>
+                            </div>
+                            <div className="flex items-start gap-1">
+                              <span className="font-semibold">Kabupaten/Kota:</span>
+                              <span>{location.city_name}</span>
+                            </div>
+                            <div className="flex items-start gap-1">
+                              <span className="font-semibold">Kecamatan:</span>
+                              <span>{location.district_name}</span>
+                            </div>
+                            <div className="flex items-start gap-1">
+                              <span className="font-semibold">Desa/Kelurahan:</span>
+                              <span>{location.posbankum_village}</span>
+                            </div>
                           </div>
                         </div>
                       </CardContent>

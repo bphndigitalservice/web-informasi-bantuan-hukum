@@ -6,7 +6,7 @@ import {
 
 import lsc from "./icon/literasi-hukum-monochrome.svg?url";
 import posbakum from "./icon/posbankum.png?url";
-import apregal from "./icon/APREGAL.png?url";
+import apregal from "./icon/apregal.png?url";
 import pja from "./icon/PJA.png?url";
 import penyuluhan from "./icon/ph.png?url";
 import pkg from "react-lazy-load-image-component";

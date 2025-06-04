@@ -469,7 +469,7 @@ export default function LegalAidOrganizationMap() {
         <MapContainer
           className="border-accent-foreground h-[80vh] w-full rounded-lg border shadow-lg"
           center={position}
-          zoom={14}
+          zoom={13}
           zoomControl={false}
           scrollWheelZoom={false}
         >

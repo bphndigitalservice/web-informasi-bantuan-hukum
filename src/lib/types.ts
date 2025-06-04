@@ -19,8 +19,11 @@ type Posbankum = {
   id: number;
   posbankum_name: string;
   posbankum_email: string;
-  posbankum_phone: string;
+  phone: string;
   posbankum_address: string;
+  city_name: string;
+  province_name: string;
+  district_name: string;
   latitude: number;
   longitude: number;
   jarak_meter: number;

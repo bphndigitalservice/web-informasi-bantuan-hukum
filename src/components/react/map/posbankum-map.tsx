@@ -1,4 +1,10 @@
-import { MapContainer, Marker, Popup, TileLayer, ZoomControl } from "react-leaflet";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  ZoomControl,
+} from "react-leaflet";
 import { RadiusWidget } from "./radius-widget.tsx";
 import L from "leaflet";
 import { useState, useEffect, useCallback, useRef } from "react";
@@ -36,15 +42,13 @@ import LoadingIndicator from "@components/react/map/loading-indicator.tsx";
 import Lenis from "lenis";
 import { getDirections } from "@/lib/map.ts";
 
-
 // Map marker icon
-const posbankumIcon = new L.Icon({
+const obhIcon = new L.Icon({
   iconUrl: obhMarkerIcon,
   iconSize: [32, 32],
   iconAnchor: [16, 16],
   popupAnchor: [0, -16],
 });
-
 
 const PosbankumPopup = ({ posbankum }: { posbankum: Posbankum }) => (
   <Card className="text-foreground w-[300px] border-0 bg-transparent shadow-none">
@@ -59,33 +63,15 @@ const PosbankumPopup = ({ posbankum }: { posbankum: Posbankum }) => (
       <div className="flex items-start gap-2">
         <Phone className="text-muted-foreground mt-0.5 h-4 w-4 flex-shrink-0" />
         <div className="flex flex-col">
-            <span>Tel: {posbankum.posbankum_phone}</span>
+          <span>Tel: {posbankum.phone}</span>
         </div>
-      </div>
-      <div className="flex items-center gap-2">
-        <Mail className="text-muted-foreground h-4 w-4" />
-        <a
-          href={`mailto:${posbankum.posbankum_email}`}
-          className="text-blue-600 hover:underline"
-        >
-          {posbankum.posbankum_email}
-        </a>
-      </div>
-      <div className="flex items-center gap-2">
-        <Globe className="text-muted-foreground h-4 w-4" />
-        <a
-          href={`#`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center text-blue-600 hover:underline"
-        >
-          Website
-          <ExternalLink className="ml-1 h-3 w-3" />
-        </a>
       </div>
     </CardContent>
     <CardFooter>
-      <Button onClick={() => getDirections(posbankum.posbankum_address)} className="w-full">
+      <Button
+        onClick={() => getDirections(posbankum.posbankum_address)}
+        className="w-full"
+      >
         Petunjuk Arah
       </Button>
     </CardFooter>
@@ -94,8 +80,14 @@ const PosbankumPopup = ({ posbankum }: { posbankum: Posbankum }) => (
 
 // Main Component
 export default function PosbankumMap() {
-  const { position, setPosition, radius, setRadius, nearbyLocations, isLoading } =
-    useNearbyLocations("posbankum");
+  const {
+    position,
+    setPosition,
+    radius,
+    setRadius,
+    nearbyLocations,
+    isLoading,
+  } = useNearbyLocations("posbankum");
   const [locationPermission, setLocationPermission] = useState<
     "prompt" | "granted" | "denied" | "checking"
   >("checking");
@@ -321,7 +313,7 @@ export default function PosbankumMap() {
                     >
                       <CardHeader className="pb-2">
                         <div className="flex flex-row items-start justify-between">
-                          <CardTitle className="text-base  leading-tight">
+                          <CardTitle className="text-base leading-tight">
                             {location.posbankum_name}
                           </CardTitle>
                           {location.jarak_meter && (
@@ -343,11 +335,7 @@ export default function PosbankumMap() {
                         <div className="space-y-1 text-xs">
                           <div className="flex items-center gap-2">
                             <Phone className="text-muted-foreground h-3 w-3" />
-                            <span>{location.posbankum_phone}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Mail className="text-muted-foreground h-3 w-3" />
-                            <span>{location.posbankum_email}</span>
+                            <span>{location.phone}</span>
                           </div>
                         </div>
                       </CardContent>
@@ -362,7 +350,9 @@ export default function PosbankumMap() {
                           }}
                         >
                           <span className="flex items-center gap-1">
-                            <Navigation className={"w-24 h-24"}/>Petunjuk Arah</span>
+                            <Navigation className={"h-24 w-24"} />
+                            Petunjuk Arah
+                          </span>
                         </Button>
                       </CardFooter>
                     </Card>
@@ -470,17 +460,19 @@ export default function PosbankumMap() {
             onRadiusChange={handleRadiusChange}
             onCenterChange={handlePositionChange}
           />
-          {nearbyLocations.map((posbankum, index) => (
-            <Marker
-              key={index}
-              icon={posbankumIcon}
-              position={[posbankum.latitude, posbankum.longitude]}
-            >
-              <Popup>
-                <PosbankumPopup posbankum={posbankum} />
-              </Popup>
-            </Marker>
-          ))}
+          {nearbyLocations.map((posbankum, index) => {
+            return (
+              <Marker
+                key={index}
+                icon={obhIcon}
+                position={[posbankum.latitude, posbankum.longitude]}
+              >
+                <Popup>
+                  <PosbankumPopup posbankum={posbankum} />
+                </Popup>
+              </Marker>
+            );
+          })}
           <ZoomControl position="topright" />
         </MapContainer>
       </div>

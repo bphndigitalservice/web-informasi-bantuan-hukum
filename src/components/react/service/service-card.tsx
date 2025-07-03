@@ -4,11 +4,13 @@ import {
   Database,
 } from "lucide-react";
 
-import lsc from "./icon/LSC.png?url";
-import posbakum from "./icon/POSBANKUM.png?url";
-import apregal from "./icon/APREGAL.png?url";
+import lsc from "./icon/literasi-hukum-monochrome.svg?url";
+import posbakum from "./icon/posbankum.png?url";
+import apregal from "./icon/apregal.png?url";
 import pja from "./icon/PJA.png?url";
+import penyuluhan from "./icon/ph.png?url";
 import pkg from "react-lazy-load-image-component";
+
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 const { LazyLoadImage } = pkg;
@@ -22,7 +24,7 @@ const services = [
         alt="Icon Ruang Paralegal"
         src={apregal}
         //effect="blur"
-        className="h-20 w-20"
+        className="h-24 w-24"
         placeholderSrc={apregal}
       />
     ),
@@ -30,13 +32,13 @@ const services = [
   },
   {
     title: "Pos Bantuan Hukum",
-    description: "Layanan bantuan hukum untuk masyarakat - di desa",
+    description: "Layanan bantuan hukum untuk masyarakat - di desa/kelurahan",
     icon: (
       <LazyLoadImage
         alt="Icon Ruang Paralegal"
         src={posbakum}
         //effect="blur"
-        className="h-20 w-20"
+        className="h-24 w-24"
         placeholderSrc={posbakum}
       />
     ),
@@ -59,27 +61,32 @@ const services = [
   {
     title: "SIDBANKUM",
     description: "Sistem Informasi Database Bantuan Hukum",
-    icon: <Database className="h-12 w-12 text-[#152553]" />,
+    icon: <Database className="h-16 w-16 text-[#152553]" />,
     href: "https://sidbankum.bphn.go.id/",
   },
   {
-    title: "LSCC",
-    description: "Konsultasi Hukum",
+    title: "Literasi Hukum",
+    description: "Kanal Informasi dan Konsultasi Hukum untuk masyarakat cerdas hukum",
     icon: (
       <LazyLoadImage
-        alt="Icon Ruang Paralegal"
+        alt="Icon Literasi Hukum"
         src={lsc}
-        className="h-24 w-24 dark:invert-100"
+        className="h-20 w-20 dark:invert-100 my-2"
         placeholderSrc={lsc}
       />
     ),
-    href: "https://lsc.bphn.go.id/konsultasi",
+    href: "https://literasihukum.bphn.go.id",
   },
   {
     title: "Penyuluhan Hukum",
     description: "Aktivitas penyuluhan Hukum",
-    icon: <MessageCircle className="h-12 w-12 text-[#152553]" />,
-    href: "https://lsc.bphn.go.id/Kanalhukum",
+    icon: <LazyLoadImage
+      alt="Icon Penyuluhan Hukum"
+      src={penyuluhan}
+      className="h-24 w-24 dark:invert-100"
+      placeholderSrc={penyuluhan}
+    />,
+    href: "https://fungsional.bphn.go.id",
   },
 ];
 
@@ -113,7 +120,7 @@ function ServiceCard({ href, icon, title, description }: ServiceCardProps) {
     <a
       href={href}
       target={"_blank"}
-      className="flex flex-col items-center justify-center rounded-3xl border border-[#152553] p-3 transition-all duration-300 hover:border-white hover:shadow-md sm:p-6 dark:border-white/80 dark:bg-white/40 dark:backdrop-blur-2xl dark:hover:border-[#FFCB05]/30"
+      className="flex flex-col items-center justify-center rounded-3xl border border-[#152553] p-3 transition-all duration-300 hover:border-[#FA5A15] hover:shadow-md sm:p-6 dark:border-[#FFCB05]/50 dark:bg-[#FFCB05]/50 "
     >
       <div className="mb-4">{icon}</div>
       <h3 className="text-center text-sm font-bold tracking-wide text-slate-800 uppercase">

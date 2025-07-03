@@ -33,6 +33,9 @@ const CIRCLE_CLASS_NAME =
   "bg-gradient-to-tr from-[#7795ff] via-[#3e61f5] to-[#7795ff] " +
   "bg-[length:200%_200%] stroke-[#3e61f5]";
 
+const RIPPLE_CIRCLE_CLASS_NAME =
+  "fill-opacity-20 stroke-2 w-16 h-16 ";
+
 // Icons
 const sizerIcon = new L.Icon({
   iconUrl: sizer,
@@ -58,6 +61,42 @@ const calculateAngle = (center: LatLng, point: LatLng): number => {
   angle = (angle + 90) % 360;
   if (angle < 0) angle += 360;
   return angle;
+};
+
+// Ripple Effect Component
+const RippleEffect = ({ center, radius }: { center: LatLng; radius: number }) => {
+  // Create multiple circles with different animation delays
+  return (
+    <>
+      {[0.5, 1, 1.5].map((delayFactor, index) => (
+        <Circle
+          key={index}
+          center={center}
+          radius={radius}
+          color={CIRCLE_COLORS.stroke}
+          fillColor={CIRCLE_COLORS.fill}
+          className={`${RIPPLE_CIRCLE_CLASS_NAME} leaflet-ripple-effect`}
+          pathOptions={{
+            fillOpacity: 0.15,
+            opacity: 0.25,
+            weight: 1.5,
+            dashArray: "5,10",
+          }}
+
+          eventHandlers={{
+            add: (e) => {
+              const path = e.target;
+              if (path._path) {
+                path._path.style.animationDelay = `${delayFactor}s`;
+                path._path.style.transformOrigin = "center";
+              }
+            },
+          }}
+
+        />
+      ))}
+    </>
+  );
 };
 
 export function RadiusWidget({
@@ -141,6 +180,7 @@ export function RadiusWidget({
 
   return (
     <>
+      {/* Main Circle */}
       <Circle
         center={centerPosition}
         radius={radius}
@@ -148,6 +188,7 @@ export function RadiusWidget({
         fillColor={CIRCLE_COLORS.fill}
         className={CIRCLE_CLASS_NAME}
       />
+
 
       <Marker
         ref={(ref) => {

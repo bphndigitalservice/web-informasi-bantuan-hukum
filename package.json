@@ -15,7 +15,7 @@
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/partytown": "^2.1.4",
     "@astrojs/react": "^4.3.0",
-    "@astrojs/sitemap": "^3.4.0",
+    "@astrojs/sitemap": "^3.5.1",
     "@astrojs/starlight": "^0.34.3",
     "@astrojs/vercel": "^8.2.7",
     "@radix-ui/react-scroll-area": "^1.2.9",

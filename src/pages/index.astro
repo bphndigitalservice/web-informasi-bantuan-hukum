@@ -44,7 +44,7 @@ const articles: Article[] = [
     imgOne: blueprints,
     imgOneAlt: "Ilustrasi konsultasi bantuan hukum",
     imgTwo: personWorking,
-    imgTwoAlt: "Diskusi penanganan kasus hukum"
+    imgTwoAlt: "Diskusi penanganan kasus hukum",
   },
   {
     isRightSection: false,
@@ -55,7 +55,7 @@ const articles: Article[] = [
     imgAlt: "Konsultasi gratis dengan penasihat hukum",
     btnExists: true,
     btnTitle: "Ajukan Konsultasi",
-    btnURL: "https://literasihukum.bphn.go.id/konsultasi"
+    btnURL: "https://literasihukum.bphn.go.id/konsultasi",
   },
   {
     isRightSection: true,
@@ -66,7 +66,7 @@ const articles: Article[] = [
     imgOne: paralegal1,
     imgOneAlt: "Pelatihan untuk paralegal",
     imgTwo: paralegal2,
-    imgTwoAlt: "Kegiatan workshop paralegal"
+    imgTwoAlt: "Kegiatan workshop paralegal",
   },
   {
     isRightSection: false,
@@ -74,7 +74,7 @@ const articles: Article[] = [
     subTitle:
       "Kami memberikan penghargaan kepada individu atau organisasi yang berkontribusi besar dalam memperluas akses keadilan dan membangun perdamaian di masyarakat. Peacemaker Justice Award menjadi bentuk apresiasi atas dedikasi luar biasa mereka.",
     img: usingTools,
-    imgAlt: "Upacara penghargaan pejuang akses keadilan"
+    imgAlt: "Upacara penghargaan pejuang akses keadilan",
   },
   {
     isRightSection: true,
@@ -83,12 +83,24 @@ const articles: Article[] = [
       "Posbankum hadir di pengadilan dan berbagai wilayah pelosok untuk memberikan layanan langsung berupa informasi hukum, konsultasi, dan bantuan penyusunan dokumen hukum secara cuma-cuma. Mudah diakses, tanpa biaya.",
     single: true,
     imgOne: posbakum3,
-    imgOneAlt: "Kanwil Kemenkum DK Jakarta dan BPHN Sosialisasikan Hak Hukum Atas Tanah dan Pembentukan Posbakum di Kelurahan Pondok Ranggon",
+    imgOneAlt:
+      "Kanwil Kemenkum DK Jakarta dan BPHN Sosialisasikan Hak Hukum Atas Tanah dan Pembentukan Posbakum di Kelurahan Pondok Ranggon",
     imgTwo: posbakum4,
     imgTwoAlt: "Warga mendapatkan layanan Posbakum",
     btnExists: true,
     btnTitle: "Temukan Posbakum Terdekat",
-    btnURL: `${SITE.url}/posbankum-terdekat`
+    btnURL: `${SITE.url}/posbankum-terdekat`,
+  },
+  {
+    isRightSection: false,
+    title: "Pedoman & SOP Posbankum",
+    subTitle:
+      "Unduh dokumen resmi Pedoman dan Standar Operasional Prosedur (SOP) Pos Bantuan Hukum untuk kebutuhan implementasi di lapangan.",
+    img: posbakum3,
+    imgAlt: "Unduhan Pedoman dan SOP Posbankum",
+    btnExists: true,
+    btnTitle: "Unduh Dokumen Posbankum",
+    btnURL: "/posbankum-downloads",
   },
   {
     isRightSection: true,
@@ -99,10 +111,9 @@ const articles: Article[] = [
     imgOne: penyuluh1,
     imgOneAlt: "Peluhmi",
     imgTwo: penyuluh2,
-    imgTwoAlt: "Sesi pelatihan penyuluh hukum"
-  }
+    imgTwoAlt: "Sesi pelatihan penyuluh hukum",
+  },
 ];
-
 
 const pageTitle: string = `Layanan | ${SITE.title}`;
 const metaDescription =
@@ -115,7 +126,6 @@ const ogTitle = "Akses Keadilan untuk Semua";
   title={pageTitle}
   customDescription={metaDescription}
   customOgTitle={ogTitle}
-
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -129,9 +139,9 @@ const ogTitle = "Akses Keadilan untuk Semua";
       url: `${SITE.url}`,
       name: "Badan Pembinaan Hukum Nasional",
       description:
-        "Portal resmi Badan Pembinaan Hukum Nasional – Kementerian Hukum yang menyediakan informasi hukum, layanan bantuan hukum, dan pembinaan masyarakat sadar hukum."
+        "Portal resmi Badan Pembinaan Hukum Nasional – Kementerian Hukum yang menyediakan informasi hukum, layanan bantuan hukum, dan pembinaan masyarakat sadar hukum.",
     },
-    inLanguage: "id-ID"
+    inLanguage: "id-ID",
   }}
 >
   {/* MainSection: pengantar layanan hukum BPHN */}
@@ -143,14 +153,16 @@ const ogTitle = "Akses Keadilan untuk Semua";
     btnURL="/services"
   />
 
-  {/* RightSection and LeftSection contain details about various services along with pertinent imagery.
+  {
+    /* RightSection and LeftSection contain details about various services along with pertinent imagery.
   They alternate for variety in design.
   The 'btnExists' property is used to toggle the display of a button in these sections.
   When btnExists={true}, a button is displayed.
   This can be used to link to more detailed information or related resources.
   RightSection can also conditionally render one or two images based on the 'single' property.
   If 'single' is true, it displays one image, otherwise it displays two.
-  */}
+  */
+  }
   {
     articles.map((article) => {
       return article.isRightSection ? (

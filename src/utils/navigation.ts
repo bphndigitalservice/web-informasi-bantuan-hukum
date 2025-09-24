@@ -5,6 +5,7 @@ const navBarLinks = [
   { name: "Informasi", url: "/blog" },
   { name: "OBH Terdekat", url: "/obh-terdekat" },
   { name: "Posbankum Terdekat", url: "/posbankum-terdekat" },
+  { name: "Unduhan Posbankum", url: "/posbankum-downloads" },
 ];
 // An array of links for footer
 const footerLinks = [

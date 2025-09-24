@@ -4,23 +4,22 @@ import HeroSection from "@components/sections/landing/HeroSection.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
 import heroImage from "@images/masthead.png";
 import faqs from "@data/faqs.json";
-import Services from "../components/react/service/service-card";
+import ServicesComponent from "../components/react/service/service-card";
 import TestimonialsSection from "../components/sections/testimonials/TestimonialsSection.astro";
 ---
 
-<MainLayout >
-
+<MainLayout>
   <HeroSection
     title={`<span class="text-[#FFCB05] dark:text-[#FFDE5F]">Akses Hukum</span> <span class="text-[#152553] dark:text-white">Lebih Mudah & Dekat</span>`}
     subTitle="Temukan informasi, layanan, dan inisiatif bantuan hukum untuk masyarakat. Mulai dari informasi paralegal, penyuluhan hukum, hingga pos bantuan hukum di desa/kelurahan — semua dalam satu portal."
-    primaryBtn="Konsultasi Hukum"
-    primaryBtnURL="https://literasihukum.bphn.go.id/konsultasi"
-    secondaryBtn="Informasi Layanan"
-    secondaryBtnURL="/services"
+    primaryBtn="Jelajahi Layanan Kami"
+    primaryBtnURL="/services"
+    secondaryBtn="Konsultasi Hukum"
+    secondaryBtnURL="https://literasihukum.bphn.go.id/konsultasi"
     src={heroImage}
     alt="Ilustrasi layanan bantuan hukum di masyarakat, termasuk paralegal dan penyuluhan hukum"
   />
-  <Services/>
+  <ServicesComponent />
 
   <!--<ClientsSection
     title="Partner Kami"
@@ -84,16 +83,13 @@ import TestimonialsSection from "../components/sections/testimonials/Testimonial
     statistics={[
       {
         count: "777",
-        description:
-          "Organisasi Bantuan Hukum Terakreditasi",
+        description: "Organisasi Bantuan Hukum Terakreditasi",
       },
       {
-        count: "16705",
-        description:
-          "Pos Bantuan Hukum Tersebar diseluruh Indonesia",
+        count: "21244",
+        description: "Pos Bantuan Hukum Tersebar diseluruh Indonesia",
       },
     ]}
   />
   <FAQ title="Pertanyaan yang<br />Sering Diajukan" faqs={faqs} />
-
 </MainLayout>

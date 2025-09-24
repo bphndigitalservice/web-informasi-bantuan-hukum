@@ -103,7 +103,6 @@ export default function Services() {
       <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
         {services.map((service) => (
           <ServiceCard
-            key={service.title}
             href={service.href}
             icon={service.icon}
             title={service.title}

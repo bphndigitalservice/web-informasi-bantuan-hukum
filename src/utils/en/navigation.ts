@@ -3,6 +3,7 @@ const navBarLinks = [
   { name: "Home", url: "/en" },
   { name: "Services", url: "/en/services" },
   { name: "Information", url: "/en/blog" },
+  { name: "Downloads (Posbankum)", url: "/posbankum-downloads" },
   //{ name: "Contact", url: "/en/contact" },
 ];
 
@@ -17,17 +18,28 @@ const footerLinks = [
     ],
   },
   {
-    "section": "Instansi Terkait",
-    "links": [
-      { "name": "Kementerian Hukum", "url": "https://kemenkum.go.id" },
-      { "name": "Badan Pembinaan Hukum Nasional (BPHN)", "url": "https://bphn.go.id" },
-      { "name": "Direktorat Jenderal Administrasi Hukum Umum (AHU)", "url": "https://ahu.go.id" },
-      { "name": "Direktorat Jenderal Kekayaan Intelektual (DJKI)", "url": "https://dgip.go.id" },
-      { "name": "Kementerian Dalam Negeri (Kemendagri)", "url": "https://www.kemendagri.go.id" },
-      { "name": "Mahkamah Agung RI", "url": "https://www.mahkamahagung.go.id" }
-    ]
-  }
-
+    section: "Instansi Terkait",
+    links: [
+      { name: "Kementerian Hukum", url: "https://kemenkum.go.id" },
+      {
+        name: "Badan Pembinaan Hukum Nasional (BPHN)",
+        url: "https://bphn.go.id",
+      },
+      {
+        name: "Direktorat Jenderal Administrasi Hukum Umum (AHU)",
+        url: "https://ahu.go.id",
+      },
+      {
+        name: "Direktorat Jenderal Kekayaan Intelektual (DJKI)",
+        url: "https://dgip.go.id",
+      },
+      {
+        name: "Kementerian Dalam Negeri (Kemendagri)",
+        url: "https://www.kemendagri.go.id",
+      },
+      { name: "Mahkamah Agung RI", url: "https://www.mahkamahagung.go.id" },
+    ],
+  },
 ];
 
 // An object of links for social media icons

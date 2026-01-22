@@ -1,0 +1,15 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4321:4321"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=4321
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+    env_file:
+      - .env
+    restart: unless-stopped

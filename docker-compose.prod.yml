@@ -1,0 +1,26 @@
+# Docker Compose for Production Deployment
+#
+# Usage:
+#   1. Pull the image from GitHub Container Registry:
+#      docker pull ghcr.io/bphndigitalservice/web-informasi-bantuan-hukum:latest
+#
+#   2. Create a .env file with your environment variables:
+#      SUPABASE_URL=your_supabase_url
+#      SUPABASE_ANON_KEY=your_supabase_anon_key
+#
+#   3. Run with docker compose:
+#      docker compose -f docker-compose.prod.yml up -d
+
+services:
+  web:
+    image: ghcr.io/bphndigitalservice/web-informasi-bantuan-hukum:latest
+    ports:
+      - "4321:4321"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=4321
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+    env_file:
+      - .env
+    restart: unless-stopped

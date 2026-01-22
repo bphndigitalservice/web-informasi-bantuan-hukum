@@ -7,7 +7,7 @@ import compressor from "astro-compressor";
 
 import react from "@astrojs/react";
 
-import vercel from "@astrojs/vercel";
+import node from "@astrojs/node";
 
 import partytown from "@astrojs/partytown";
 
@@ -51,7 +51,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  adapter: vercel(),
+  adapter: node({ mode: 'standalone' }),
   markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)

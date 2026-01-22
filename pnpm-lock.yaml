@@ -50,12 +50,6 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.1.13
         version: 4.1.18(vite@6.4.1(@types/node@25.0.10)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0)(yaml@2.8.2))
-      '@types/react':
-        specifier: ^19.1.15
-        version: 19.2.9
-      '@types/react-dom':
-        specifier: ^19.1.5
-        version: 19.2.3(@types/react@19.2.9)
       '@vercel/analytics':
         specifier: ^1.5.0
         version: 1.6.1(react@19.1.1)
@@ -144,6 +138,12 @@ importers:
       '@types/leaflet':
         specifier: ^1.9.18
         version: 1.9.21
+      '@types/react':
+        specifier: ^19.1.15
+        version: 19.2.9
+      '@types/react-dom':
+        specifier: ^19.1.5
+        version: 19.2.3(@types/react@19.2.9)
       '@types/react-lazy-load-image-component':
         specifier: ^1.6.4
         version: 1.6.5

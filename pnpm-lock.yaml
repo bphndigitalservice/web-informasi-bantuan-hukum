@@ -6995,6 +6995,8 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
+  semver@7.7.3: {}
+
   sharp-ico@0.1.5:
     dependencies:
       decode-ico: 0.4.1

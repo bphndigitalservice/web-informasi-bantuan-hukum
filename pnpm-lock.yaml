@@ -6971,8 +6971,6 @@ snapshots:
 
   select@1.1.2: {}
 
-  semver@6.3.1: {}
-
   semver@7.7.3: {}
 
   send@1.2.1:

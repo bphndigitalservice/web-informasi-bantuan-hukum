@@ -45,8 +45,8 @@ const services = [
     href: "https://posbankum.bphn.go.id/",
   },
   {
-    title: "Peacemaker Justice Award",
-    description: "Penghargaan untuk kepada desa/lurah berprestasi",
+    title: "Peacemaker Training",
+    description: "Penguatan Kapasitas Kepala Desa dan Lurah sebagai Juru Damai (Non Litigation Peacemaker)",
     icon: (
       <LazyLoadImage
         alt="Icon Ruang Paralegal"

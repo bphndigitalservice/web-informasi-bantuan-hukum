@@ -18,7 +18,7 @@
     "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/starlight": "^0.34.8",
-    "@astrojs/vercel": "^8.2.11",
+    "@astrojs/vercel": "^9.0.4",
     "@radix-ui/react-scroll-area": "^1.2.10",
     "@radix-ui/react-separator": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",

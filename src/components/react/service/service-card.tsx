@@ -24,7 +24,7 @@ const services = [
         placeholderSrc={posbakum}
       />
     ),
-    href: "https://posbankum.bphn.go.id/",
+    href: "https://posbankum.kemenkum.go.id/",
   },
   {
     title: "Peacemaker Training",
